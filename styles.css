@@ -16,6 +16,8 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
+html { scroll-behavior: smooth; } /* Ensure smooth scrolling for anchor clicks */
+
 body {
   background-color: var(--bg-body);
   color: var(--text-main);
@@ -47,10 +49,47 @@ ul { list-style: none; }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 100%; padding: 0 24px; }
 .logo { font-weight: 800; font-size: 1.1rem; letter-spacing: -0.05em; }
 .nav-links { display: flex; gap: 20px; align-items: center; }
-.nav-links a { font-size: 0.85rem; color: var(--text-muted); font-weight: 500; }
+
+/* Nav Link Base Styles */
+.nav-links a { 
+  font-size: 0.85rem; 
+  color: var(--text-muted); 
+  font-weight: 500; 
+  position: relative; /* For the active dot */
+  transition: color 0.3s ease;
+}
 .nav-links a:hover { color: var(--text-main); }
+
+/* --- NEW: Active State Highlighting --- */
+.nav-links a.active {
+  color: var(--text-main);
+}
+/* Exclude the contact button from the dot style, apply to text links only */
+.nav-links a:not(.btn-nav).active::after {
+  content: "";
+  position: absolute;
+  bottom: -6px; /* Position below text */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--accent); /* Glowing effect */
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+  from { transform: translateX(-50%) scale(0); }
+  to { transform: translateX(-50%) scale(1); }
+}
+
+/* Contact Button Specifics */
 .btn-nav { background: rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 20px; color: #fff !important; }
 .btn-nav:hover { background: #fff; color: #000 !important; }
+/* If contact is active, maybe just brighten the background slightly */
+.btn-nav.active { background: rgba(255,255,255,0.2); }
+
 
 /* Hero */
 .hero {
@@ -81,7 +120,6 @@ ul { list-style: none; }
 .badge-1 { top: 10%; left: -20px; animation: float 6s ease-in-out infinite; }
 .badge-2 { bottom: 10%; right: -20px; animation: float 6s ease-in-out infinite 1s; }
 .badge-3 { top: 50%; right: -50px; animation: float 6s ease-in-out infinite 2s; }
-/* NEW BADGE POSITIONS */
 .badge-4 { top: -20px; left: 50%; transform: translateX(-50%); animation: float 6s ease-in-out infinite 0.5s; }
 .badge-5 { bottom: -20px; left: 50%; transform: translateX(-50%); animation: float 6s ease-in-out infinite 2.5s; }
 
@@ -122,7 +160,7 @@ ul { list-style: none; }
 .blue { background: var(--accent); }
 .purple { background: #9D4EDD; }
 
-/* --- DYNAMIC FLUID TIMELINE CSS --- */
+/* Timeline */
 .timeline {
   position: relative;
   padding: 20px 0; 
@@ -204,7 +242,7 @@ ul { list-style: none; }
 .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s var(--transition); }
 .reveal.active { opacity: 1; transform: translateY(0); transition-delay: var(--delay, 0ms); }
 
-/* --- FLUID LIQUID GLASS MODAL CSS (Index Page Projects) --- */
+/* --- FLUID LIQUID GLASS MODAL CSS --- */
 .modal-overlay {
   position: fixed; top: 0; left: 0; right: 0; bottom: 0;
   background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
@@ -266,107 +304,9 @@ ul { list-style: none; }
 .gradient-purple { background: linear-gradient(135deg, rgba(157, 78, 221, 0.2), transparent); }
 .gradient-dark { background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent); }
 
-/* --- GALLERY LIGHTBOX MODAL CSS (NEW) --- */
-.gallery-lightbox {
-  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.95); /* Deeper dark background */
-  z-index: 2000; display: flex; align-items: center; justify-content: center;
-  opacity: 0; visibility: hidden; transition: opacity 0.3s;
-}
-.gallery-lightbox.active {
-  opacity: 1; visibility: visible;
-}
-
-.lightbox-content {
-  position: relative; width: 90%; max-width: 900px; max-height: 90vh;
-  display: flex; flex-direction: column;
-}
-
-.lightbox-image-container {
-  flex-grow: 1; position: relative;
-  background: #000; /* Black background for images */
-  border-radius: 16px; overflow: hidden;
-  display: flex; align-items: center; justify-content: center;
-  /* Aspect ratio fix for better presentation */
-  height: 0;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio (56.25% of width) */
-}
-
-.lightbox-image {
-  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-  object-fit: contain; /* Ensures the image fits within the container */
-  transition: opacity 0.3s ease;
-}
-
-.lightbox-caption {
-  color: #fff; text-align: center; padding: 15px 20px;
-  font-size: 1rem; background: rgba(0, 0, 0, 0.5); border-radius: 0 0 16px 16px;
-  position: absolute; bottom: 0; width: 100%;
-  backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
-  z-index: 5;
-}
-
-.lightbox-nav {
-  position: absolute; top: 0; bottom: 0; width: 35%;
-  display: flex; align-items: center; cursor: pointer;
-  transition: background-color 0.2s;
-  opacity: 0;
-  z-index: 10;
-}
-.lightbox-nav:hover { opacity: 1; }
-
-.lightbox-nav-btn {
-  background: rgba(255, 255, 255, 0.2); border: none; color: white;
-  width: 40px; height: 40px; border-radius: 50%; font-size: 1.5rem;
-  display: flex; align-items: center; justify-content: center;
-  transition: background 0.3s, transform 0.3s;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  cursor: pointer;
-}
-.lightbox-nav-btn:hover { background: rgba(255, 255, 255, 0.9); color: #000; transform: scale(1.1); }
-
-.lightbox-prev { left: 0; padding-left: 20px; justify-content: flex-start; }
-.lightbox-next { right: 0; padding-right: 20px; justify-content: flex-end; }
-
-.lightbox-close {
-  position: absolute; top: 20px; right: 20px;
-  background: rgba(255, 255, 255, 0.2); border: none; color: white;
-  width: 40px; height: 40px; border-radius: 50%; font-size: 1.5rem;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer; z-index: 15;
-  transition: background 0.3s, transform 0.3s;
-  opacity: 0.8;
-}
-.lightbox-close:hover { background: #fff; color: #000; opacity: 1; transform: rotate(90deg); }
-
-/* Hide caption if we are showing a placeholder image that doesn't need a caption */
-.lightbox-caption:empty { display: none; }
-
 /* --- INTERACTIVE BACKGROUND BLOBS --- */
 #blob-container {
   position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
   overflow: hidden; pointer-events: none; background: var(--bg-body);
 }
 .blob { position: absolute; border-radius: 50%; filter: blur(50px); opacity: 0.6; will-change: transform; transition: background 1s ease; }
-
-@media (max-width: 768px) {
-    /* ... existing media queries ... */
-    .lightbox-nav { display: none; } /* Hide side navigation on small screens */
-    .lightbox-content { max-height: 95vh; }
-    .lightbox-close { top: 10px; right: 10px; }
-}
-
-/* --- Gallery Album Counter --- */
-.lightbox-counter {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  background: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.8);
-  padding: 5px 12px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 500;
-  backdrop-filter: blur(4px);
-  z-index: 15;
-}
