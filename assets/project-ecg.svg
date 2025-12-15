@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
-  <rect width="100%" height="100%" fill="#071428" />
-  <g transform="translate(80,80)">
-    <rect x="0" y="0" width="1040" height="640" rx="20" fill="#073047" opacity="0.12" />
-    <path d="M40 420 L140 260 L220 340 L340 220 L420 380 L520 300 L640 360 L760 240 L880 380 L980 320" stroke="#2fd0ff" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
-    <text x="520" y="700" font-family="Inter, Arial, sans-serif" font-size="40" fill="#bfe8ff" text-anchor="middle">ECG Signal Pipeline (placeholder)</text>
-  </g>
-</svg>

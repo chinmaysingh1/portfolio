@@ -171,7 +171,7 @@
             <div class="gallery-item" data-gallery-id="kairs">
                 <div class="album-cover">
                     <span class="album-count">5 Photos</span>
-                    <img src="assets/project-pulse.svg" alt="KAIRS Album" style="padding: 30px; object-fit: contain;">
+                    <img src="assets/KAIRS_Pitch.jpeg" alt="KAIRS Album" style="padding: 30px; object-fit: contain;">
                     <div class="gallery-caption">
                         <h3>KAIRS Development</h3>
                         <p>Prototyping, PCB design, and clinical testing.</p>
@@ -193,7 +193,7 @@
             <div class="gallery-item" data-gallery-id="biocast">
                 <div class="album-cover">
                     <span class="album-count">4 Photos</span>
-                    <img src="assets/ChinmayHeadshot.jpg" alt="Sode Lab Album" style="object-position: top;">
+                    <img src="assets/BioCastLogo.png" alt="BioCast Album" style="object-position: top;">
                     <div class="gallery-caption">
                         <h3>BioCast</h3>
                         <p>Combatting scientific misinformation, one interview at a time.</p>
@@ -203,8 +203,8 @@
             
             <div class="gallery-item" data-gallery-id="ewh">
                 <div class="album-cover">
-                    <span class="album-count">3 Photos</span>
-                    <img src="assets/project-ecg.svg" alt="EWH Album" style="padding: 30px; object-fit: contain;">
+                    <span class="album-count">6 Photos</span>
+                    <img src="assets/EWH.jpg" alt="EWH Album" style="padding: 30px; object-fit: contain;">
                     <div class="gallery-caption">
                         <h3>Engineering World Health @ UNC</h3>
                         <p>Circuit building, soldering, and teaching events.</p>
@@ -265,28 +265,30 @@
              // DATA: Distinct Albums (Reusing assets as placeholders)
              const albums = {
                  'kairs': [
-                     { src: 'assets/project-pulse.svg', caption: 'KAIRS: Early circuit diagram for the IMU sensor array.', type: 'svg' },
-                     { src: 'assets/ChinmayHeadshot.jpg', caption: 'KAIRS: The founding team reviewing prototype designs.', type: 'img' },
-                     { src: 'assets/project-ecg.svg', caption: 'KAIRS: V1 PCB schematic designed in KiCad.', type: 'svg' },
-                     { src: 'assets/project-gait.svg', caption: 'KAIRS: Motion tracking visualization output from Python.', type: 'svg' },
-                     { src: 'assets/project-pulse.svg', caption: 'KAIRS: Finalizing the sleeve fabric tension tests.', type: 'svg' }
+                     { src: 'assets/KAIRS_Pitch.jpeg', caption: 'Chinmay Singh pitching KAIRS at the 2025 NC State VenturePack Awards Ceremony.', type: 'img' },
+                     { src: 'assets/IMUSetup.jpeg', caption: 'Initial Setup for KAIRS Prototype and Proof of Concept using IMU sensors.', type: 'img' },
+                     { src: 'assets/KAIRS_VP.jpeg', caption: 'KAIRS Team accepting their 2025 VenturePack Grand Prize Award.', type: 'img' },
+                     { src: 'assets/KAIRS_VP2.jpeg', caption: 'KAIRS Team accepting their 2025 VenturePack Audience Choice Award.', type: 'img' },
+                     { src: 'assets/KAIRS_BMES.jpeg', caption: 'Chinmay after presenting KAIRS at the 2024 Medtronic/BMES Student Design Competition.', type: 'img' }
                  ],
                  'igem': [
-                     { src: 'assets/iGEM.JPG', caption: 'UNC iGEM team after winning Gold at the 2025 iGEM Grand Jamboree.', type: 'svg' },
-                     { src: 'assets/ChinmayHeadshot.jpg', caption: 'iGEM: Wet lab team conducting electrophoresis.', type: 'img' },
-                     { src: 'assets/project-ecg.svg', caption: 'iGEM: Genetic circuit design for the PFAS-binding logic.', type: 'svg' },
-                     { src: 'assets/project-gait.svg', caption: 'iGEM: Poster presentation at the Giant Jamboree.', type: 'svg' }
+                     { src: 'assets/iGEM.JPG', caption: 'UNC iGEM team after winning Gold at the 2025 iGEM Grand Jamboree.', type: 'img' },
+                     { src: 'assets/Deposition.jpg', caption: 'Deposition curve for electrochemistry techniques used to quantify PFAS; in this case, electrodes are treated with Meldola Blue.', type: 'img' },
+                     { src: 'assets/DPVCurve.jpg', caption: 'Differential Pulse Voltammetry Curve during PFAS quantification.', type: 'img' },
+                     { src: 'assets/ResultsiGEM.jpg', caption: 'Results for PFAS Quantification in parts per trillion across different conditions; top row is PFAS quantification when treated with a small-molecule inhibitor, while bottom row is PFAS quantification for three different engineered probiotics.', type: 'img' }
                  ],
                  'biocast': [
-                     { src: 'assets/ChinmayHeadshot.jpg', caption: 'BioCast: Preparing samples at the flow cytometry station.', type: 'img' },
-                     { src: 'assets/project-pulse.svg', caption: 'BioCast: scFv antibody binding affinity graph.', type: 'svg' },
-                     { src: 'assets/project-gait.svg', caption: 'BioCast: Structure of the target antigen.', type: 'svg' },
-                     { src: 'assets/ChinmayHeadshot.jpg', caption: 'BioCast: Analyzing culture growth rates.', type: 'img' }
+                     { src: 'assets/BioCastLogo.png', caption: 'BioCast Logo', type: 'img' },
+                     { src: 'assets/PanchEpisode.png', caption: 'Interview with Dr. Sethuraman Panchanathan, director of the National Science Foundation.', type: 'img' },
+                     { src: 'assets/SchererEpisode.png', caption: 'Interview with Dr. Steven Scherer, director of research at SickKids Hospital.', type: 'img' },
+                     { src: 'assets/MarrazzoEp.png', caption: 'Interview with Dr. Jeanne Marrazzo, director of the National Institute of Allergy and Infectious Diseases.', type: 'img' }
                  ],
                  'ewh': [
-                     { src: 'assets/project-ecg.svg', caption: 'EWH: Schematic for the optical heart rate monitor.', type: 'svg' },
-                     { src: 'assets/ChinmayHeadshot.jpg', caption: 'EWH: Students learning soldering techniques.', type: 'img' },
-                     { src: 'assets/project-pulse.svg', caption: 'EWH: Completed kit testing on the oscilloscope.', type: 'svg' }
+                     { src: 'assets/EWH.jpg', caption: 'EWH: Schematic for the optical heart rate monitor.', type: 'img' },
+                     { src: 'assets/Engineer-A-Thon.jpeg', caption: 'EWH: Students learning soldering techniques.', type: 'img' },
+                     { src: 'assets/EAThon-2.jpeg', caption: 'EWH: Completed kit testing on the oscilloscope.', type: 'img' },
+                     { src: 'assets/EAThon-3.jpeg', caption: 'EWH: Schematic for the optical heart rate monitor.', type: 'img' }, 
+                     { src: 'assets/EAThon-4.jpeg', caption: 'EWH: Schematic for the optical heart rate monitor.', type: 'img' },
                  ]
              };
 
