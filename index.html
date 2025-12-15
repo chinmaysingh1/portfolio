@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div id="blob-container"></div>
     
     <nav class="navbar">
       <div class="container nav-inner">
@@ -21,6 +22,7 @@
           <li><a href="#work">Projects</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#honors">Awards</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
           <li><a href="#contact" class="btn-nav">Contact</a></li>
         </ul>
       </div>
@@ -57,6 +59,8 @@
             <div class="floating-badge badge-1">Wet Lab</div>
             <div class="floating-badge badge-2">Unreal Engine 5</div>
             <div class="floating-badge badge-3">Medical Devices</div>
+            <div class="floating-badge badge-4">TensorFlow</div>
+            <div class="floating-badge badge-5">AlphaFold</div>
           </div>
         </div>
       </section>
@@ -256,81 +260,136 @@
     </footer>
 
     <div id="modal-container" class="modal-overlay" aria-hidden="true">
-      
-      <div id="modal-kairs" class="modal-card">
-        <button class="modal-close" aria-label="Close">✕</button>
-        <div class="modal-header gradient-blue">
-          <div class="modal-tag">Startup Venture</div>
-          <h2>KAIRS: Knee AI Rehab Sleeve</h2>
-        </div>
-        <div class="modal-body">
-          <h3>The Challenge</h3>
-          <p>Post-operative knee rehabilitation is often unmonitored, leading to poor recovery outcomes.</p>
-          <h3>The Solution</h3>
-          <p>Co-Founded a startup to build a wearable sleeve integrated with IMU sensors. I led the development of a <strong>TensorFlow machine learning model</strong> to interpret sensor data and provide real-time feedback.</p>
-          <h3>Impact & Awards</h3>
-          <ul class="modal-list">
-            <li><strong>$12,500 Funding:</strong> Won non-dilutive, equity-free funding.</li>
-            <li><strong>Grand Champion:</strong> NC State VenturePack 2025.</li>
-            <li><strong>Global Runner-Up:</strong> Placed 2nd Internationally at the 2024 BMES/Medtronic Student Design Competition.</li>
-          </ul>
-        </div>
-      </div>
+      <div class="modal-wrapper">
+        
+        <button class="nav-arrow nav-prev" aria-label="Previous Project">←</button>
+        <button class="nav-arrow nav-next" aria-label="Next Project">→</button>
 
-      <div id="modal-igem" class="modal-card">
-        <button class="modal-close" aria-label="Close">✕</button>
-        <div class="modal-header gradient-purple">
-          <div class="modal-tag">Synthetic Biology Research</div>
-          <h2>UNC iGEM: PFAS Remediation</h2>
-        </div>
-        <div class="modal-body">
-          <h3>Role: Wet Lab Lead</h3>
-          <p>Managed a team of 6 researchers in the development of a novel probiotic aimed at environmental health.</p>
-          <h3>Technical Work</h3>
-          <p>We engineered <em>E. coli</em> to knock out the TolC gene and synthesized proteins designed to uptake <strong>PFAS (Forever Chemicals)</strong> from the human gut.</p>
-          <h3>Key Contributions</h3>
-          <ul class="modal-list">
-            <li>Organized bi-weekly lab workflows.</li>
-            <li>Synthesized proteins for probiotic development.</li>
-          </ul>
-        </div>
-      </div>
+        <div id="modal-kairs" class="modal-card">
+          <button class="modal-close" aria-label="Close">✕</button>
+          <div class="modal-header gradient-blue">
+            <div class="modal-tag">Startup Venture • Medical Device</div>
+            <h2>KAIRS: Knee AI Rehab Sleeve</h2>
+          </div>
+          <div class="modal-body">
+            <a href="gallery.html#kairs" target="_blank">
+              <img src="assets/project-pulse.svg" alt="KAIRS Device" class="modal-banner" />
+            </a>
+            
+            <div class="modal-skills">
+              <span class="modal-skill-tag">🤖 TensorFlow</span>
+              <span class="modal-skill-tag">🐍 Python</span>
+              <span class="modal-skill-tag">📡 IMU Sensors</span>
+              <span class="modal-skill-tag">⚡ PCB Design</span>
+            </div>
 
-      <div id="modal-biocast" class="modal-card">
-        <button class="modal-close" aria-label="Close">✕</button>
-        <div class="modal-header gradient-dark">
-          <div class="modal-tag">Web Development & Media</div>
-          <h2>BioCast Podcast</h2>
-        </div>
-        <div class="modal-body">
-          <h3>Overview</h3>
-          <p>Co-founded and hosted a podcast to bridge the gap between biological research and the public.</p>
-          <h3>Technical & Creative</h3>
-          <ul class="modal-list">
-            <li><strong>Full Stack Dev:</strong> Coded the website using HTML, CSS, JS.</li>
-            <li><strong>Notable Guests:</strong> Dr. Robert Langer (Moderna), Dr. Eric Green (NHGRI), Sethuraman Panchanathan (NSF).</li>
-          </ul>
-        </div>
-      </div>
+            <div class="modal-section-title">The Challenge</div>
+            <p>Post-operative knee rehabilitation is often unmonitored, leading to poor recovery outcomes and high rates of re-injury.</p>
 
-      <div id="modal-ewh" class="modal-card">
-        <button class="modal-close" aria-label="Close">✕</button>
-        <div class="modal-header gradient-dark">
-          <div class="modal-tag">Leadership</div>
-          <h2>Engineering World Health</h2>
+            <div class="modal-section-title">The Solution</div>
+            <p>I co-founded KAIRS to build a wearable sleeve integrated with IMU sensors. My primary technical contribution was engineering a <strong>TensorFlow machine learning model</strong> that interprets sensor data to track range-of-motion and exercise form in real-time.</p>
+
+            <div class="modal-section-title">Impact & Awards</div>
+            <ul class="modal-list">
+              <li><strong>$12,500 Funding:</strong> Secured non-dilutive grant funding.</li>
+              <li><strong>Grand Champion:</strong> NC State VenturePack 2025 (Audience Choice Winner).</li>
+              <li><strong>Global Runner-Up:</strong> 2nd Place at 2024 BMES/Medtronic Student Design Competition.</li>
+            </ul>
+          </div>
         </div>
-        <div class="modal-body">
-          <h3>Role: President</h3>
-          <p>Re-opened and led the UNC Chapter.</p>
-          <h3>Key Achievements</h3>
-          <ul class="modal-list">
-            <li><strong>Engineer-A-Thon:</strong> Organized UNC's first event for 40+ students, managing a $2,000 corporate budget.</li>
-            <li><strong>Skills Training:</strong> Instructed 20+ students in building optical heart rate monitor kits.</li>
-          </ul>
+
+        <div id="modal-igem" class="modal-card">
+          <button class="modal-close" aria-label="Close">✕</button>
+          <div class="modal-header gradient-purple">
+            <div class="modal-tag">Synthetic Biology Research</div>
+            <h2>UNC iGEM: PFAS Remediation</h2>
+          </div>
+          <div class="modal-body">
+            <a href="gallery.html#igem" target="_blank">
+              <img src="assets/iGEM.JPG" alt="Protein Structure" class="modal-banner" />
+            </a>
+            
+
+            <div class="modal-skills">
+              <span class="modal-skill-tag">🧬 Protein Synthesis</span>
+              <span class="modal-skill-tag">🧫 E. coli Culture</span>
+              <span class="modal-skill-tag">🧪 Wet Lab Lead</span>
+            </div>
+
+            <div class="modal-section-title">Project Overview</div>
+            <p>As <strong>Wet Lab Lead</strong>, I managed a team of 6 researchers to develop a novel probiotic aimed at environmental health.</p>
+
+            <div class="modal-section-title">Methodology</div>
+            <p>We engineered <em>E. coli</em> bacteria to knock out the TolC gene and synthesized specific proteins designed to bind and uptake <strong>PFAS (Forever Chemicals)</strong> from the human gut, reducing systemic toxicity.</p>
+            
+            <div class="modal-section-title">Key Contributions</div>
+            <ul class="modal-list">
+              <li>Organized bi-weekly lab workflows and experimental protocols.</li>
+              <li>Presented findings to large groups and managed sub-team coordination.</li>
+            </ul>
+          </div>
         </div>
+
+        <div id="modal-biocast" class="modal-card">
+          <button class="modal-close" aria-label="Close">✕</button>
+          <div class="modal-header gradient-dark">
+            <div class="modal-tag">Web Development & Media</div>
+            <h2>BioCast Podcast</h2>
+          </div>
+          <div class="modal-body">
+            <a href="gallery.html#biocast" target="_blank">
+              <img src="assets/ChinmayHeadshot.jpg" alt="BioCast Website" class="modal-banner" style="object-position: top;" />
+            </a>
+
+            <div class="modal-skills">
+              <span class="modal-skill-tag">💻 HTML/CSS/JS</span>
+              <span class="modal-skill-tag">🎙️ Adobe Audition</span>
+              <span class="modal-skill-tag">📢 Marketing</span>
+            </div>
+
+            <div class="modal-section-title">The Project</div>
+            <p>Co-founded a podcast to bridge the gap between complex biological research and the public. I handled the entire technical pipeline, from web development to audio engineering.</p>
+
+            <div class="modal-section-title">Notable Guests</div>
+            <ul class="modal-list">
+              <li><strong>Dr. Robert Langer:</strong> Co-founder of Moderna.</li>
+              <li><strong>Dr. Eric Green:</strong> Director of the NHGRI.</li>
+              <li><strong>Sethuraman Panchanathan:</strong> Director of the NSF.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div id="modal-ewh" class="modal-card">
+          <button class="modal-close" aria-label="Close">✕</button>
+          <div class="modal-header gradient-dark">
+            <div class="modal-tag">Leadership & Electronics</div>
+            <h2>Engineering World Health</h2>
+          </div>
+          <div class="modal-body">
+            <a href="gallery.html#ewh" target="_blank">
+              <img src="assets/project-ecg.svg" alt="Circuit Building" class="modal-banner" />
+
+            </a>
+
+            <div class="modal-skills">
+              <span class="modal-skill-tag">🔌 Soldering</span>
+              <span class="modal-skill-tag">💡 Circuit Design</span>
+              <span class="modal-skill-tag">👥 Event Planning</span>
+            </div>
+
+            <div class="modal-section-title">Role: President</div>
+            <p>I re-opened and led the UNC Chapter, focusing on hands-on engineering skills for undergraduates.</p>
+
+            <div class="modal-section-title">Achievements</div>
+            <ul class="modal-list">
+              <li><strong>Engineer-A-Thon:</strong> Organized UNC's first event for 40+ students, managing a $2,000 corporate budget.</li>
+              <li><strong>Skills Workshops:</strong> Personally instructed 20+ students in soldering and electronics to build optical heart rate monitor kits.</li>
+            </ul>
+          </div>
+        </div>
+
       </div>
     </div>
-
     <script src="script.js"></script>
   </body>
 </html>

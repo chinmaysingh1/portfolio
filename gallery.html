@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Gallery — Chinmay Singh</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* --- GALLERY SPECIFIC STYLES --- */
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 40px; /* More gap for the stack effect */
+        padding-top: 40px;
+        padding-bottom: 80px;
+      }
+
+      /* THE ALBUM STACK EFFECT */
+      .gallery-item {
+        position: relative;
+        background: var(--bg-surface);
+        border-radius: 16px;
+        cursor: pointer;
+        transition: transform 0.3s var(--transition);
+        /* We don't hide overflow so the stack effects are visible */
+      }
+
+      /* Stack Layer 1 (Bottom) */
+      .gallery-item::before {
+        content: ""; position: absolute; top: 10px; left: 10px; right: -10px; bottom: -10px;
+        background: rgba(255, 255, 255, 0.05); border-radius: 16px; z-index: -1;
+        transform: rotate(2deg); transition: transform 0.3s ease;
+        border: 1px solid rgba(255,255,255,0.05);
+      }
+
+      /* Stack Layer 2 (Middle) */
+      .gallery-item::after {
+        content: ""; position: absolute; top: 5px; left: 5px; right: -5px; bottom: -5px;
+        background: rgba(255, 255, 255, 0.08); border-radius: 16px; z-index: -1;
+        transform: rotate(1deg); transition: transform 0.3s ease;
+        border: 1px solid rgba(255,255,255,0.05);
+      }
+
+      /* Hover Animation: Fan out the stack */
+      .gallery-item:hover { transform: translateY(-5px); }
+      .gallery-item:hover::before { transform: rotate(4deg) translate(5px, 5px); }
+      .gallery-item:hover::after { transform: rotate(2deg) translate(3px, 3px); }
+
+      /* Main Card Content */
+      .album-cover {
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid rgba(255,255,255,0.1);
+        background: #0d1117;
+        position: relative;
+        z-index: 2; /* Sits on top of stack */
+      }
+
+      .album-cover img {
+        width: 100%; height: 260px; object-fit: cover;
+        transition: opacity 0.3s;
+      }
+
+      .gallery-caption { padding: 20px; }
+      .gallery-caption h3 { color: var(--text-main); margin-bottom: 4px; font-size: 1.1rem; }
+      .gallery-caption p { font-size: 0.85rem; color: var(--text-muted); }
+      
+      .album-count {
+        position: absolute; top: 15px; right: 15px;
+        background: rgba(0,0,0,0.6); color: white;
+        padding: 4px 10px; border-radius: 20px;
+        font-size: 0.75rem; font-weight: 700;
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(255,255,255,0.2);
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div id="blob-container"></div>
+    
+    <nav class="navbar">
+      <div class="container nav-inner">
+        <a href="index.html" class="logo">CS.</a>
+        <ul class="nav-links">
+          <li><a href="index.html#work">Projects</a></li>
+          <li><a href="index.html#experience">Experience</a></li>
+          <li><a href="index.html#honors">Awards</a></li>
+          <li class="active"><a href="gallery.html" class="btn-nav">Gallery</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <section class="section container" style="padding-top: 150px;">
+        <div class="section-header reveal active">
+          <h2>Project Albums</h2>
+          <p class="section-desc">Visual documentations of my engineering process. Select an album to view the collection.</p>
+        </div>
+
+        <div class="gallery-grid reveal active" style="--delay: 100ms;">
+            
+            <div class="gallery-item" data-gallery-id="kairs">
+                <div class="album-cover">
+                    <span class="album-count">5 Photos</span>
+                    <img src="assets/project-pulse.svg" alt="KAIRS Album" style="padding: 30px; object-fit: contain;">
+                    <div class="gallery-caption">
+                        <h3>KAIRS Development</h3>
+                        <p>Prototyping, PCB design, and clinical testing.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-gallery-id="igem">
+                <div class="album-cover">
+                    <span class="album-count">4 Photos</span>
+                    <img src="assets/project-gait.svg" alt="iGEM Album" style="padding: 30px; object-fit: contain;">
+                    <div class="gallery-caption">
+                        <h3>iGEM Wet Lab</h3>
+                        <p>Protein synthesis, modeling, and team collaboration.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-gallery-id="sode">
+                <div class="album-cover">
+                    <span class="album-count">4 Photos</span>
+                    <img src="assets/ChinmayHeadshot.jpg" alt="Sode Lab Album" style="object-position: top;">
+                    <div class="gallery-caption">
+                        <h3>Sode Lab Research</h3>
+                        <p>Antibody engineering and E. coli cultures.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-gallery-id="ewh">
+                <div class="album-cover">
+                    <span class="album-count">3 Photos</span>
+                    <img src="assets/project-ecg.svg" alt="EWH Album" style="padding: 30px; object-fit: contain;">
+                    <div class="gallery-caption">
+                        <h3>EWH Workshops</h3>
+                        <p>Circuit building, soldering, and teaching events.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+      </section>
+    </main>
+    
+    <div id="gallery-lightbox" class="gallery-lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close">✕</button>
+
+            <div class="lightbox-image-container">
+                <img id="lightbox-image" class="lightbox-image" src="" alt="Gallery Image" />
+                
+                <div class="lightbox-nav lightbox-prev">
+                    <button id="lightbox-prev-btn" class="lightbox-nav-btn">←</button>
+                </div>
+                <div class="lightbox-nav lightbox-next">
+                    <button id="lightbox-next-btn" class="lightbox-nav-btn">→</button>
+                </div>
+            </div>
+            
+            <div id="lightbox-caption" class="lightbox-caption"></div>
+            
+            <div id="lightbox-counter" class="lightbox-counter"></div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; <span id="year"></span> Chinmay Singh</p>
+      </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+             const yearEl = document.getElementById('year');
+             if (yearEl) yearEl.textContent = new Date().getFullYear();
+             
+             // --- 1. ALBUM LOGIC ---
+             const galleryItems = document.querySelectorAll('.gallery-item');
+             const lightbox = document.getElementById('gallery-lightbox');
+             const lightboxImage = document.getElementById('lightbox-image');
+             const lightboxCaption = document.getElementById('lightbox-caption');
+             const lightboxCounter = document.getElementById('lightbox-counter');
+             const prevBtn = document.getElementById('lightbox-prev-btn');
+             const nextBtn = document.getElementById('lightbox-next-btn');
+             const closeBtn = document.querySelector('.lightbox-close');
+
+             // State
+             let currentAlbum = [];
+             let currentImageIndex = 0;
+             
+             // DATA: Distinct Albums (Reusing assets as placeholders)
+             // In a real scenario, you would list unique image files here.
+             const albums = {
+                 'kairs': [
+                     { src: 'assets/project-pulse.svg', caption: 'KAIRS: Early circuit diagram for the IMU sensor array.', type: 'svg' },
+                     { src: 'assets/ChinmayHeadshot.jpg', caption: 'KAIRS: The founding team reviewing prototype designs.', type: 'img' },
+                     { src: 'assets/project-ecg.svg', caption: 'KAIRS: V1 PCB schematic designed in KiCad.', type: 'svg' },
+                     { src: 'assets/project-gait.svg', caption: 'KAIRS: Motion tracking visualization output from Python.', type: 'svg' },
+                     { src: 'assets/project-pulse.svg', caption: 'KAIRS: Finalizing the sleeve fabric tension tests.', type: 'svg' }
+                 ],
+                 'igem': [
+                     { src: 'assets/project-gait.svg', caption: 'iGEM: 3D protein structure modeled in AlphaFold.', type: 'svg' },
+                     { src: 'assets/ChinmayHeadshot.jpg', caption: 'iGEM: Wet lab team conducting electrophoresis.', type: 'img' },
+                     { src: 'assets/project-ecg.svg', caption: 'iGEM: Genetic circuit design for the PFAS-binding logic.', type: 'svg' },
+                     { src: 'assets/project-gait.svg', caption: 'iGEM: Poster presentation at the Giant Jamboree.', type: 'svg' }
+                 ],
+                 'biocast': [
+                     { src: 'assets/ChinmayHeadshot.jpg', caption: 'Sode Lab: Preparing samples at the flow cytometry station.', type: 'img' },
+                     { src: 'assets/project-pulse.svg', caption: 'Sode Lab: scFv antibody binding affinity graph.', type: 'svg' },
+                     { src: 'assets/project-gait.svg', caption: 'Sode Lab: Structure of the target antigen.', type: 'svg' },
+                     { src: 'assets/ChinmayHeadshot.jpg', caption: 'Sode Lab: Analyzing culture growth rates.', type: 'img' }
+                 ],
+                 'ewh': [
+                     { src: 'assets/project-ecg.svg', caption: 'EWH: Schematic for the optical heart rate monitor.', type: 'svg' },
+                     { src: 'assets/ChinmayHeadshot.jpg', caption: 'EWH: Students learning soldering techniques.', type: 'img' },
+                     { src: 'assets/project-pulse.svg', caption: 'EWH: Completed kit testing on the oscilloscope.', type: 'svg' }
+                 ]
+             };
+
+             function updateLightboxUI() {
+                 const image = currentAlbum[currentImageIndex];
+                 
+                 // Fade out briefly
+                 lightboxImage.style.opacity = '0.5'; 
+
+                 setTimeout(() => {
+                     lightboxImage.src = image.src;
+                     lightboxCaption.textContent = image.caption;
+                     lightboxCounter.textContent = `${currentImageIndex + 1} / ${currentAlbum.length}`;
+                     
+                     // Style tweaks for SVGs vs Photos
+                     if (image.type === 'svg') {
+                        lightboxImage.style.objectFit = 'contain';
+                        lightboxImage.style.padding = '40px';
+                     } else {
+                        lightboxImage.style.objectFit = 'contain'; // 'contain' usually better for lightboxes than cover
+                        lightboxImage.style.padding = '0';
+                     }
+                     
+                     // Fade in
+                     lightboxImage.style.opacity = '1';
+                 }, 150);
+             }
+
+             function openAlbum(albumKey) {
+                 if (!albums[albumKey]) return;
+                 
+                 currentAlbum = albums[albumKey];
+                 currentImageIndex = 0; // Always start at the first photo of THIS album
+                 
+                 updateLightboxUI();
+                 lightbox.classList.add('active');
+                 document.body.style.overflow = 'hidden';
+             }
+
+             function nextImage() {
+                 currentImageIndex = (currentImageIndex + 1) % currentAlbum.length;
+                 updateLightboxUI();
+             }
+
+             function prevImage() {
+                 currentImageIndex = (currentImageIndex - 1 + currentAlbum.length) % currentAlbum.length;
+                 updateLightboxUI();
+             }
+
+             function closeLightbox() {
+                 lightbox.classList.remove('active');
+                 document.body.style.overflow = '';
+             }
+
+             // --- CLICK HANDLERS ---
+             galleryItems.forEach(item => {
+                 item.addEventListener('click', () => {
+                     const id = item.getAttribute('data-gallery-id');
+                     openAlbum(id);
+                 });
+             });
+
+             nextBtn.addEventListener('click', (e) => { e.stopPropagation(); nextImage(); });
+             prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prevImage(); });
+             closeBtn.addEventListener('click', closeLightbox);
+             lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+
+             // KEYBOARD NAV
+             document.addEventListener('keydown', (e) => {
+                 if (!lightbox.classList.contains('active')) return;
+                 if (e.key === 'Escape') closeLightbox();
+                 if (e.key === 'ArrowRight') nextImage();
+                 if (e.key === 'ArrowLeft') prevImage();
+             });
+
+             // --- NEW: DEEP LINKING LOGIC ---
+            function checkDeepLink() {
+                const hash = window.location.hash.substring(1); // Get the album ID (e.g., 'kairs')
+                if (hash && albums[hash]) {
+                    // Open the specific album if a valid ID is found in the URL hash
+                    openAlbum(hash);
+                }
+            }
+            
+            // Execute deep link check immediately on load
+            checkDeepLink();
+
+
+             // --- 2. BACKGROUND BLOBS ---
+             const blobContainer = document.getElementById('blob-container');
+             if (blobContainer) {
+                 const blobCount = 7; 
+                 const blobs = [];
+                 const colors = ['rgba(75, 156, 211, 0.7)', 'rgba(157, 78, 221, 0.6)', 'rgba(0, 255, 255, 0.5)', 'rgba(255, 100, 150, 0.5)'];
+                 const random = (min, max) => Math.random() * (max - min) + min;
+
+                 class Blob {
+                    constructor(id) {
+                        this.el = document.createElement('div');
+                        this.el.classList.add('blob');
+                        this.size = random(200, 400); 
+                        this.el.style.width = `${this.size}px`;
+                        this.el.style.height = `${this.size}px`;
+                        this.el.style.background = colors[id % colors.length];
+                        this.x = random(0, window.innerWidth - this.size);
+                        this.y = random(0, window.innerHeight - this.size);
+                        this.vx = random(-0.8, 0.8);
+                        this.vy = random(-0.8, 0.8);
+                        blobContainer.appendChild(this.el);
+                    }
+                    update(mouseX, mouseY) {
+                        this.x += this.vx; this.y += this.vy;
+                        if (this.x <= -100 || this.x >= window.innerWidth - this.size + 100) this.vx *= -1;
+                        if (this.y <= -100 || this.y >= window.innerHeight - this.size + 100) this.vy *= -1;
+                        this.vx *= 0.995; this.vy *= 0.995;
+                        const centerX = this.x + this.size / 2;
+                        const centerY = this.y + this.size / 2;
+                        const dx = mouseX - centerX;
+                        const dy = mouseY - centerY;
+                        const dist = Math.sqrt(dx*dx + dy*dy);
+                        if (dist < 450) {
+                            const angle = Math.atan2(dy, dx);
+                            const force = (450 - dist) / 450;
+                            this.x -= Math.cos(angle) * force * 6.0;
+                            this.y -= Math.sin(angle) * force * 6.0;
+                        }
+                        this.el.style.transform = `translate(${this.x}px, ${this.y}px)`;
+                    }
+                }
+                for (let i = 0; i < blobCount; i++) blobs.push(new Blob(i));
+                let mouseX = -1000, mouseY = -1000;
+                window.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
+                function animate() { blobs.forEach(b => b.update(mouseX, mouseY)); requestAnimationFrame(animate); }
+                animate();
+            }
+        });
+    </script>
+  </body>
+</html>
