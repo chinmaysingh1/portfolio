@@ -22,18 +22,18 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- 2. Advanced Fluid Modal Logic ---
-  const modalContainer = document.getElementById('modal-overlay'); // Corrected ID usage
+  const modalContainer = document.getElementById('modal-container'); // FIXED: Matches index.html ID
   const modalWrapper = document.querySelector('.modal-wrapper'); 
   const closeButtons = document.querySelectorAll('.modal-close');
-  const triggers = document.querySelectorAll('[data-project-id]'); 
-  const prevBtn = document.querySelector('#modal-prev'); 
-  const nextBtn = document.querySelector('#modal-next');
   
-  // Update Modal IDs to match index.html
-  const modalIds = ['modal-kairs-v3', 'modal-igem-project', 'modal-sode-lab', 'modal-ewh-workshop'];
+  // FIXED: Select triggers using data-modal attribute found in index.html
+  const triggers = document.querySelectorAll('[data-modal]'); 
+
+  // Modal IDs to cycle through (Must match IDs in index.html)
+  const modalIds = ['modal-kairs', 'modal-igem', 'modal-biocast', 'modal-ewh'];
   let currentIndex = 0;
 
-  function openModal(index) {
+  function openModal(modalId) {
     // 1. Reset state
     document.querySelectorAll('.modal-card').forEach(card => {
       card.classList.remove('active', 'rendering');
@@ -41,13 +41,14 @@ document.addEventListener('DOMContentLoaded', () => {
       card.scrollTop = 0; 
     });
 
-    const targetId = modalIds[index];
-    const targetModal = document.getElementById(targetId);
+    const targetModal = document.getElementById(modalId);
     
-    if (targetModal) {
+    if (targetModal && modalContainer) {
       modalContainer.classList.add('active');
       document.body.style.overflow = 'hidden'; 
-      currentIndex = index;
+      
+      // Update current index for next/prev buttons
+      currentIndex = modalIds.indexOf(modalId);
 
       // 2. FLUID ANIMATION TRICK
       targetModal.style.display = 'block';
@@ -63,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.modal-card.active').forEach(card => {
       card.classList.remove('active');
     });
-    modalContainer.classList.remove('active');
+    if (modalContainer) modalContainer.classList.remove('active');
     document.body.style.overflow = '';
     
     setTimeout(() => {
@@ -79,31 +80,27 @@ document.addEventListener('DOMContentLoaded', () => {
     triggers.forEach(trigger => {
       trigger.addEventListener('click', (e) => {
         e.preventDefault(); 
-        const projectId = trigger.getAttribute('data-project-id');
-        // Map project ID to modal index
-        let index = -1;
-        if (projectId === 'kairs-v3') index = 0;
-        if (projectId === 'igem-project') index = 1;
-        if (projectId === 'sode-lab') index = 2;
-        if (projectId === 'ewh-workshop') index = 3;
-
-        if (index !== -1) openModal(index);
+        const targetId = trigger.getAttribute('data-modal');
+        if (targetId) openModal(targetId);
       });
     });
+
+    const prevBtn = document.querySelector('.nav-prev'); 
+    const nextBtn = document.querySelector('.nav-next');
 
     if (prevBtn && nextBtn) {
       prevBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         let newIndex = currentIndex - 1;
         if (newIndex < 0) newIndex = modalIds.length - 1;
-        openModal(newIndex);
+        openModal(modalIds[newIndex]);
       });
 
       nextBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         let newIndex = currentIndex + 1;
         if (newIndex >= modalIds.length) newIndex = 0;
-        openModal(newIndex);
+        openModal(modalIds[newIndex]);
       });
     }
 
@@ -208,17 +205,15 @@ document.addEventListener('DOMContentLoaded', () => {
     animate();
   }
 
-  // --- 4. Scroll Spy Logic (FIXED) ---
+  // --- 4. Scroll Spy Logic ---
   const navLinks = document.querySelectorAll('.nav-links a');
   const sections = document.querySelectorAll('section');
 
   function activeMenu() {
     let len = sections.length;
-    let currentSectionId = 'hero'; // Default: top of the page
+    let currentSectionId = 'hero'; 
 
-    // Iterate backward to find the highest section that is currently visible
     while (--len >= 0) {
-        // Use an offset (150px) to make sure the link highlights before the section hits the very top
         if (sections[len].offsetTop <= window.scrollY + 150) {
             currentSectionId = sections[len].id;
             break;
@@ -227,42 +222,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     navLinks.forEach(link => {
         link.classList.remove("active");
-        
         const linkHref = link.getAttribute('href');
         let targetId = null;
 
-        // Check if it's an internal hash link (e.g., 'index.html#work' or '#work')
         if (linkHref.includes('#')) {
-            // Extract the ID after the last '#'
             targetId = linkHref.substring(linkHref.lastIndexOf('#') + 1);
         }
 
         let shouldBeActive = false;
+        if (targetId === currentSectionId) shouldBeActive = true;
+        if (currentSectionId === 'hero' && targetId === 'work') shouldBeActive = true;
+        if (linkHref === 'gallery.html' || linkHref === 'index.html') shouldBeActive = false; 
 
-        // 1. If the section ID matches the link's target ID
-        if (targetId === currentSectionId) {
-            shouldBeActive = true;
-        } 
-        
-        // 2. Special case: If we are in the 'hero' section (at the very top), highlight the 'Projects' link (#work)
-        if (currentSectionId === 'hero' && targetId === 'work') {
-            shouldBeActive = true;
-        }
-        
-        // 3. Special case: If the link is the 'Gallery' link, do nothing (it's an external page)
-        if (linkHref === 'gallery.html' || linkHref === 'index.html') {
-             shouldBeActive = false; 
-        }
-
-        // Apply active class if match is found
-        if (shouldBeActive) {
-             link.classList.add("active");
-        }
+        if (shouldBeActive) link.classList.add("active");
     });
   }
   
-  // Run on scroll
   window.addEventListener("scroll", activeMenu);
-  // Run once on load to set initial state
   activeMenu();
 });
