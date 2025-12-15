@@ -22,14 +22,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- 2. Advanced Fluid Modal Logic ---
-  const modalContainer = document.getElementById('modal-container'); // FIXED: Matches index.html ID
+  const modalContainer = document.getElementById('modal-container'); 
   const modalWrapper = document.querySelector('.modal-wrapper'); 
   const closeButtons = document.querySelectorAll('.modal-close');
-  
-  // FIXED: Select triggers using data-modal attribute found in index.html
   const triggers = document.querySelectorAll('[data-modal]'); 
 
-  // Modal IDs to cycle through (Must match IDs in index.html)
+  // Modal IDs to cycle through
   const modalIds = ['modal-kairs', 'modal-igem', 'modal-biocast', 'modal-ewh'];
   let currentIndex = 0;
 
@@ -75,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 500);
   }
 
-  // Event Listeners
+  // --- Event Listeners (Fixed for Background Click) ---
   if (modalContainer) {
     triggers.forEach(trigger => {
       trigger.addEventListener('click', (e) => {
@@ -85,8 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    const prevBtn = document.querySelector('.nav-prev'); 
-    const nextBtn = document.querySelector('.nav-next');
+    const prevBtn = document.querySelector('.nav-arrow.nav-prev'); 
+    const nextBtn = document.querySelector('.nav-arrow.nav-next');
 
     if (prevBtn && nextBtn) {
       prevBtn.addEventListener('click', (e) => {
@@ -106,11 +104,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     closeButtons.forEach(btn => btn.addEventListener('click', closeModal));
 
-    if (modalWrapper) {
-      modalWrapper.addEventListener('click', (e) => {
-        if (e.target === modalWrapper) closeModal();
-      });
-    }
+    // [FIXED] Robust Background Click Handler
+    modalContainer.addEventListener('click', (e) => {
+      // Check if the click happened inside the card or on the nav arrows
+      const isClickInsideCard = e.target.closest('.modal-card');
+      const isClickOnArrow = e.target.closest('.nav-arrow');
+      
+      // If the click is NOT inside a card AND NOT on an arrow, it must be the background
+      if (!isClickInsideCard && !isClickOnArrow) {
+        closeModal();
+      }
+    });
 
     document.addEventListener('keydown', (e) => {
       if (!modalContainer.classList.contains('active')) return;
