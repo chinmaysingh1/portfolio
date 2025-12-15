@@ -114,25 +114,126 @@ ul { list-style: none; }
 
 /* Hero Avatar */
 .avatar-container { position: relative; width: 320px; height: 320px; }
-.avatar-ring { position: absolute; inset: -20px; border-radius: 50%; background: conic-gradient(from 0deg, transparent 50%, var(--accent)); animation: spin 4s linear infinite; opacity: 0.5; filter: blur(20px); z-index: 0; }
+.avatar-ring { position: absolute; inset: -20px; border-radius: 50%; background: conic-gradient(from 0deg, transparent 0%, var(--accent)); animation: spin 4s linear infinite; opacity: 1; filter: blur(20px); z-index: 0; }
 .avatar-img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; position: relative; z-index: 2; border: 4px solid var(--bg-body); box-shadow: 0 20px 50px rgba(0,0,0,0.8); }
 .floating-badge { position: absolute; z-index: 3; background: rgba(20, 20, 25, 0.8); backdrop-filter: blur(10px); padding: 8px 16px; border-radius: 50px; font-size: 0.8rem; font-weight: 600; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
-.badge-1 { top: 10%; left: -20px; animation: float 6s ease-in-out infinite; }
-.badge-2 { bottom: 10%; right: -20px; animation: float 6s ease-in-out infinite 1s; }
-.badge-3 { top: 50%; right: -50px; animation: float 6s ease-in-out infinite 2s; }
-.badge-4 { top: -20px; left: 50%; transform: translateX(-50%); animation: float 6s ease-in-out infinite 0.5s; }
-.badge-5 { bottom: -20px; left: 50%; transform: translateX(-50%); animation: float 6s ease-in-out infinite 2.5s; }
+
+/* --- 1. NEW ANIMATIONS (Fixes the jumping bug) --- */
+/* Standard float */
+@keyframes float { 
+  0%, 100% { transform: translateY(0px); } 
+  50% { transform: translateY(-10px); } 
+}
+/* Float for items that need Horizontal Centering (Top/Bottom) */
+@keyframes float-center { 
+  0%, 100% { transform: translateX(-50%) translateY(0px); } 
+  50% { transform: translateX(-50%) translateY(-10px); } 
+}
+/* Float for items that need Vertical Centering (Left/Right) */
+@keyframes float-middle { 
+  0%, 100% { transform: translateY(-50%) translateX(0px); } 
+  50% { transform: translateY(-50%) translateX(0px) translateY(-10px); } 
+}
+
+/* --- 2. BADGE POSITIONS (Tightened Orbit) --- */
+
+/* Top Center - Closer to head */
+.badge-1 { 
+  top: -25px; left: 50%; 
+  animation: float-center 6s ease-in-out infinite 0s; 
+}
+
+/* Top Right - Tucked in */
+.badge-2 { 
+  top: 20px; right: -25px; 
+  animation: float 5.5s ease-in-out infinite 1s; 
+}
+
+/* Right Middle - Closer to ear */
+.badge-3 { 
+  top: 50%; right: -55px; 
+  animation: float-middle 7s ease-in-out infinite 2s; 
+}
+
+/* Bottom Right - Tucked in */
+.badge-4 { 
+  bottom: 20px; right: -25px; 
+  animation: float 6s ease-in-out infinite 0.5s; 
+}
+
+/* Bottom Center - Closer to chin */
+.badge-5 { 
+  bottom: -25px; left: 50%; 
+  animation: float-center 5s ease-in-out infinite 1.5s; 
+}
+
+/* Bottom Left - Tucked in */
+.badge-6 { 
+  bottom: 20px; left: -25px; 
+  animation: float 6.5s ease-in-out infinite 3s; 
+}
+
+/* Left Middle - Closer to ear */
+.badge-7 { 
+  top: 50%; left: -55px; 
+  animation: float-middle 6s ease-in-out infinite 2.5s; 
+}
+
+/* Top Left - Tucked in */
+.badge-8 { 
+  top: 20px; left: -25px; 
+  animation: float 5s ease-in-out infinite 0.2s; 
+}
 
 @keyframes spin { 100% { transform: rotate(360deg); } }
-@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
 /* Ticker */
-.ticker-wrap { width: 100%; overflow: hidden; background: rgba(255,255,255,0.02); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); padding: 30px 0; margin-bottom: 40px; }
-.ticker-mask { mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); overflow: hidden; }
-.ticker { display: inline-flex; white-space: nowrap; animation: ticker-scroll 30s linear infinite; }
-.ticker-item { display: inline-block; font-size: 1.5rem; font-weight: 700; color: rgba(255,255,255,0.3); margin: 0 40px; text-transform: uppercase; letter-spacing: 0.05em; transition: color 0.3s; }
-.ticker-item:hover { color: var(--accent); cursor: default; }
-@keyframes ticker-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+.ticker-wrap { 
+  width: 100%; 
+  overflow: hidden; 
+  background: rgba(255,255,255,0.02); 
+  border-top: 1px solid rgba(255,255,255,0.05); 
+  border-bottom: 1px solid rgba(255,255,255,0.05); 
+  padding: 30px 0; 
+  margin-bottom: 40px; 
+}
+
+.ticker-mask { 
+  /* Mask edges for a smooth fade-in/out effect */
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); 
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); 
+  overflow: hidden; 
+}
+
+.ticker { 
+  display: inline-flex; 
+  white-space: nowrap; 
+  /* Run continually */
+  animation: ticker-scroll 40s linear infinite; 
+}
+
+.ticker-item { 
+  display: inline-block; 
+  font-size: 1.5rem; 
+  font-weight: 700; 
+  color: rgba(255,255,255,0.3); 
+  margin: 0 40px; 
+  text-transform: uppercase; 
+  letter-spacing: 0.05em; 
+  transition: color 0.3s; 
+}
+
+.ticker-item:hover { 
+  color: var(--accent); 
+  cursor: default; 
+}
+
+/* CHANGED: Only scroll -50% because the JS doubles the content. 
+   When it hits -50%, the second set is exactly where the first started. */
+@keyframes ticker-scroll { 
+  0% { transform: translateX(0); } 
+  100% { transform: translateX(-50%); } 
+}
 
 /* Bento Grid */
 .section { padding: 80px 0; position: relative; z-index: 1; }
@@ -160,60 +261,154 @@ ul { list-style: none; }
 .blue { background: var(--accent); }
 .purple { background: #9D4EDD; }
 
-/* Timeline */
+/* --- REFINED TIMELINE (Liquid Glass Style) --- */
 .timeline {
   position: relative;
-  padding: 20px 0; 
+  padding: 40px 0;
+  max-width: 1000px;
+  margin: 0 auto;
 }
+
+/* The vertical guide rail - sleek and centered on the left */
 .timeline::before {
-  content: ""; position: absolute; top: 0; bottom: 0; left: 30px; width: 2px; margin-left: -1px; 
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 10%, rgba(255, 255, 255, 0.15) 90%, rgba(255, 255, 255, 0) 100%);
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 20px; /* Fixed anchor position */
+  width: 2px;
+  background: linear-gradient(to bottom, 
+    rgba(255, 255, 255, 0) 0%, 
+    rgba(255, 255, 255, 0.1) 15%, 
+    rgba(255, 255, 255, 0.1) 85%, 
+    rgba(255, 255, 255, 0) 100%
+  );
   z-index: 0;
 }
-.timeline-item {
-  position: relative; display: grid; grid-template-columns: 200px 1fr; gap: 30px; margin-bottom: 24px;
-  padding: 24px; padding-left: 80px; border-radius: 16px; border: 1px solid transparent;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); z-index: 1;
-}
-.timeline-item:hover {
-  background: rgba(255, 255, 255, 0.04); border-color: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.4); transform: translateX(10px); 
-}
-.timeline-item::after {
-  content: ""; position: absolute; top: 10%; bottom: 10%; left: 30px; width: 4px; margin-left: -2px; 
-  background: var(--accent); border-radius: 4px; opacity: 0; transform: scaleY(0); transform-origin: center;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); z-index: 1; 
-}
-.timeline-item:hover::after {
-  opacity: 1; box-shadow: 0 0 15px var(--accent); transform: translateX(-10px) scaleY(1);
-}
-.timeline-item::before {
-  content: ""; position: absolute; left: 30px; top: 32px; width: 12px; height: 12px; margin-left: -6px; 
-  background: var(--bg-body); border: 2px solid var(--accent); border-radius: 50%;
-  box-shadow: 0 0 0 6px var(--bg-body); z-index: 2; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-.timeline-item:hover::before {
-  background: var(--accent); box-shadow: 0 0 20px var(--accent); transform: translateX(-10px) scale(1.4);
-}
-.timeline-left { display: flex; flex-direction: column; justify-content: flex-start; }
-.date { font-size: 0.8rem; font-family: monospace; color: var(--text-muted); margin-bottom: 6px; transition: color 0.3s; }
-.role { font-weight: 700; font-size: 1rem; color: var(--text-main); opacity: 0.9; transition: all 0.3s; }
-.timeline-item:hover .date { color: var(--accent); }
-.timeline-item:hover .role { color: #fff; text-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
-.timeline-right h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 5px; color: #fff; }
-.institution { font-size: 0.9rem; color: var(--accent); margin-bottom: 12px; font-weight: 500; display: inline-block; }
-.timeline-right p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
 
+.timeline-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 160px 1fr; /* Distinct separation: Date vs Card */
+  gap: 30px;
+  margin-bottom: 40px;
+  padding-left: 50px; /* Space reserved for the dot/line */
+}
+
+/* The Dot (Static Anchor) - Stays on the line */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 14px; /* Perfectly centered on the 2px line at left:20px */
+  top: 32px; /* Aligns with the card title */
+  width: 14px;
+  height: 14px;
+  background: var(--bg-body);
+  border: 2px solid rgba(255, 255, 255, 0.2); /* Subtle inactive state */
+  border-radius: 50%;
+  z-index: 2;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 0 0 4px var(--bg-body); /* Creates the "gap" visually */
+}
+
+/* Active State for Dot on Hover - Glows instead of moving */
+.timeline-item:hover::before {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 6px rgba(75, 156, 211, 0.2), 0 0 20px var(--accent);
+  transform: scale(1.2);
+}
+
+/* Left Side (Date & Role) */
+.timeline-left {
+  text-align: right;
+  padding-top: 6px; /* Visual alignment with right card title */
+}
+
+.date {
+  display: block;
+  font-family: "Inter", monospace;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  opacity: 0.7;
+}
+
+.role {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text-main);
+  line-height: 1.2;
+  transition: color 0.3s ease;
+}
+
+.timeline-item:hover .role {
+  color: var(--accent);
+}
+
+/* Right Side (The Liquid Glass Card) */
+.timeline-right {
+  position: relative;
+  background: rgba(255, 255, 255, 0.02); /* Very subtle fill */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 24px 32px;
+  backdrop-filter: blur(12px); /* The "Frosted Glass" effect */
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+/* Card Hover Effect - Lifts up and brightens */
+.timeline-item:hover .timeline-right {
+  transform: translateY(-5px) scale(1.01);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Typography inside the card */
+.timeline-right h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: #fff;
+}
+
+.institution {
+  font-size: 0.9rem;
+  color: var(--accent);
+  margin-bottom: 16px;
+  font-weight: 500;
+  display: inline-block;
+  letter-spacing: 0.02em;
+}
+
+.timeline-right p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* Mobile Responsiveness */
 @media (max-width: 900px) {
-  .hero { flex-direction: column-reverse; text-align: center; padding-top: 120px; }
-  .hero-stats { justify-content: center; }
-  .bento-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
-  .large, .tall, .medium { grid-column: span 1; grid-row: span 1; }
-  .timeline::before { display: none; } 
-  .timeline-item::before, .timeline-item::after { display: none; }
-  .timeline-item { grid-template-columns: 1fr; gap: 16px; padding: 24px; padding-left: 24px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); }
-  .timeline-item:hover { transform: none; }
-  .timeline-left { flex-direction: row; justify-content: space-between; align-items: baseline; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px; margin-bottom: 12px; }
+  .timeline::before { left: 20px; } 
+  
+  .timeline-item {
+    grid-template-columns: 1fr; /* Stack vertically */
+    gap: 12px;
+    padding-left: 50px; 
+    margin-bottom: 30px;
+  }
+  
+  .timeline-left {
+    text-align: left;
+    margin-bottom: 4px;
+  }
+  
+  .timeline-right {
+    padding: 20px;
+  }
 }
 
 /* Awards */
