@@ -565,9 +565,9 @@ ul { list-style: none; }
     transform: scale(0.9);
   }
   /* Pull badges closer to the face */
-  .badge-2 { right: -10px; }
-  .badge-3 { right: -20px; }
-  .badge-7 { left: -20px; }
+  .badge-2 { right: -25px; }
+  .badge-3 { right: -45px; }
+  .badge-7 { left: -50px; }
   .badge-6 { left: -10px; }
 
   /* 3. BENTO GRID (Stack Vertically) */
