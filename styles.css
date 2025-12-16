@@ -505,3 +505,210 @@ ul { list-style: none; }
   overflow: hidden; pointer-events: none; background: var(--bg-body);
 }
 .blob { position: absolute; border-radius: 50%; filter: blur(50px); opacity: 0.6; will-change: transform; transition: background 1s ease; }
+
+/* =========================================
+   MOBILE RESPONSIVENESS (Paste at bottom of styles.css)
+   ========================================= */
+
+/* --- TABLET & SMALL LAPTOPS (Max Width: 1024px) --- */
+@media (max-width: 1024px) {
+  /* Fix Bento Grid to be 2 columns instead of 3 */
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto; /* Allow auto height */
+  }
+  
+  /* Adjust "Large" and "Tall" cards to fit the new grid */
+  .large { grid-column: span 2; }
+  .tall { grid-row: auto; } /* Stop spanning rows to prevent gaps */
+}
+
+/* --- MOBILE DEVICES (Max Width: 768px) --- */
+@media (max-width: 768px) {
+  
+  /* 1. HERO SECTION */
+  .hero {
+    flex-direction: column-reverse; /* Stack Image on top, Text below */
+    text-align: center;
+    padding-top: 120px; /* Space for navbar */
+    gap: 40px;
+    height: auto; 
+    min-height: auto;
+  }
+
+  .hero-text {
+    width: 100%;
+  }
+
+  .sub-headline {
+    margin: 0 auto 2.5rem auto; /* Center align */
+  }
+
+  .hero-stats {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding-bottom: 20px;
+  }
+
+  /* 2. AVATAR ADJUSTMENTS */
+  .avatar-container {
+    width: 260px; /* Slightly smaller for mobile */
+    height: 260px;
+    margin: 0 auto;
+  }
+  
+  /* Shrink floating badges so they don't get cut off */
+  .floating-badge {
+    padding: 6px 12px;
+    font-size: 0.7rem;
+    transform: scale(0.9);
+  }
+  /* Pull badges closer to the face */
+  .badge-2 { right: -10px; }
+  .badge-3 { right: -20px; }
+  .badge-7 { left: -20px; }
+  .badge-6 { left: -10px; }
+
+  /* 3. BENTO GRID (Stack Vertically) */
+  .bento-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .bento-card {
+    min-height: auto; /* Let content dictate height */
+  }
+  
+  /* Reset grid specific properties */
+  .large, .tall, .medium {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  /* 4. MODALS (Popups) */
+  .modal-card {
+    width: 95%;
+    max-height: 80vh;
+    border-radius: 16px;
+  }
+  
+  .modal-header { padding: 20px; }
+  .modal-body { padding: 0 20px 40px 20px; }
+  .modal-header h2 { font-size: 1.5rem; }
+  
+  /* Hide the previous/next arrows on mobile (hard to tap) */
+  .nav-arrow { display: none; }
+}
+
+/* --- SMALL PHONES (Max Width: 600px) --- */
+@media (max-width: 600px) {
+  
+  /* 5. NAVBAR */
+  .navbar {
+    width: 95%;
+    padding: 0 10px;
+    top: 15px; /* Keep it tight to the top */
+  }
+  
+  .logo {
+    display: none; /* Hide logo to save space for links */
+  }
+  
+  .nav-inner {
+    justify-content: center;
+  }
+  
+  .nav-links {
+    width: 100%;
+    justify-content: space-between;
+    gap: 0;
+  }
+  
+  .nav-links a {
+    font-size: 0.75rem; /* Smaller text */
+    padding: 5px;
+  }
+  
+  /* Make contact button smaller */
+  .btn-nav {
+    padding: 5px 10px;
+  }
+
+  /* 6. TYPOGRAPHY & SECTIONS */
+  .headline {
+    font-size: 2.2rem; 
+  }
+  
+  .section {
+    padding: 60px 0;
+  }
+  
+  /* Fix inline padding in gallery.html via CSS override */
+  main section[style] {
+    padding-top: 100px !important;
+  }
+
+  /* 7. GALLERY & AWARDS */
+  /* Force gallery to 1 column */
+  .gallery-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .awards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* 8. TIMELINE FIXES */
+  .timeline {
+    padding-left: 0;
+  }
+  /* Move the vertical line closer to edge */
+  .timeline::before {
+    left: 10px; 
+  }
+  /* Move content closer to line */
+  .timeline-item {
+    padding-left: 35px;
+    grid-template-columns: 1fr; /* Stack date and card */
+    gap: 10px;
+  }
+  /* Align dot with new line position */
+  .timeline-item::before {
+    left: 4px;
+  }
+  /* Align date text to left */
+  .timeline-left {
+    text-align: left;
+    margin-bottom: 0;
+  }
+  .timeline-right {
+    padding: 20px;
+  }
+}
+
+/* =========================================
+   PADDING FIX FOR MOBILE (Paste at bottom)
+   ========================================= */
+
+@media (max-width: 768px) {
+  /* Enforce side padding so content doesn't touch the screen edges */
+  .container {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    width: 100%; /* Ensure it doesn't overflow */
+  }
+
+  /* Ensure the bento grid stays within the padded container */
+  .bento-grid {
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  /* Optional: Add a little more breathing room for section headings on mobile */
+  .section-header h2 {
+    font-size: 2rem; /* Slightly smaller font prevents wrapping issues */
+    line-height: 1.2;
+  }
+}
