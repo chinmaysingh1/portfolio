@@ -151,7 +151,7 @@ ul { list-style: none; }
 
 /* Right Middle - Closer to ear */
 .badge-3 { 
-  top: 50%; right: -55px; 
+  top: 50%; right: -85px; 
   animation: float-middle 7s ease-in-out infinite 2s; 
 }
 
@@ -175,7 +175,7 @@ ul { list-style: none; }
 
 /* Left Middle - Closer to ear */
 .badge-7 { 
-  top: 50%; left: -55px; 
+  top: 50%; left: -65px; 
   animation: float-middle 6s ease-in-out infinite 2.5s; 
 }
 
