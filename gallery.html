@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="styles.css" />
     <style>
       /* --- GALLERY SPECIFIC STYLES --- */
-      .gallery-grid {
+      .gallery-grid {            
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         gap: 40px; /* More gap for the stack effect */
@@ -174,7 +174,7 @@
                     <img src="assets/KAIRS_Pitch.jpeg" alt="KAIRS Album" style="padding: 30px; object-fit: contain;">
                     <div class="gallery-caption">
                         <h3>KAIRS Development</h3>
-                        <p>Prototyping, PCB design, and clinical testing.</p>
+                        <p>Prototyping, awards and recognition, and pitch competitions.</p>
                     </div>
                 </div>
             </div>
@@ -185,7 +185,7 @@
                     <img src="assets/iGEM.JPG" alt="iGEM Album" style="padding: 30px; object-fit: contain;">
                     <div class="gallery-caption">
                         <h3>iGEM Wet Lab</h3>
-                        <p>Protein synthesis, modeling, and team collaboration.</p>
+                        <p>Genetic engineering, cell culture, and team collaboration.</p>
                     </div>
                 </div>
             </div>
@@ -211,6 +211,19 @@
                     </div>
                 </div>
             </div>
+
+
+        <div class="gallery-item" data-gallery-id="capstone">
+                <div class="album-cover">
+                    <span class="album-count">4 Photos</span>
+                    <img src="assets/ThreeMusk.JPG" alt="The Three Musketeeers" style="padding: 30px; object-fit: contain;">
+                    <div class="gallery-caption">
+                        <h3>Senior Design Capstone Project</h3>
+                        <p>Clinician interviews, VR Development, and hardware prototyping with haptic feedback glove.</p>
+                    </div>
+                </div>
+        </div>
+
 
         </div>
       </section>
@@ -289,7 +302,13 @@
                      { src: 'assets/EAThon-2.jpeg', caption: 'EWH: Completed kit testing on the oscilloscope.', type: 'img' },
                      { src: 'assets/EAThon-3.jpeg', caption: 'EWH: Schematic for the optical heart rate monitor.', type: 'img' }, 
                      { src: 'assets/EAThon-4.jpeg', caption: 'EWH: Schematic for the optical heart rate monitor.', type: 'img' },
-                 ]
+                 ], 
+                 'capstone': [
+                     { src: 'assets/ThreeMusk.JPG', caption: 'Three Musketeers Senior Design Capstone Group Visiting New York to visit the Bouton Lab.', type: 'img' },
+                     { src: 'assets/Environment.png', caption: 'Rendering of the Virtual Reality Environment created for the stroke rehabilitation patients. Pictured are a comforting environment (with lo-fi music playing in the background), grabbable components, such as a spoon, plate, and cup, and a VRPawn.', type: 'img' },
+                     { src: 'assets/Blueprint.png', caption: 'One blueprint that went into the Proof of Concept design, such that when the spoon touches the plate and hitboxes overlap, the widget blueprint (pictured in the next image) updates accordingly, where the "Done" is invisible until the action is completed.', type: 'img' },
+                     { src: 'assets/WidgetBlueprint.png', caption: 'The widget blueprint, attached to the VRPawn, which is displayed in front of the viewer at all times when they are completing actions within the environment.', type: 'img' },
+                 ],
              };
 
              function updateLightboxUI() {
