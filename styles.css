@@ -18,6 +18,10 @@
 
 html { scroll-behavior: smooth; } /* Ensure smooth scrolling for anchor clicks */
 
+.extra-padding {
+  margin-top: 50px;
+}
+
 body {
   background-color: var(--bg-body);
   color: var(--text-main);
@@ -424,11 +428,12 @@ ul { list-style: none; }
 /* Footer & Contact */
 .center-text { text-align: center; }
 .contact-lead { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto; }
-.button-row { display: flex; gap: 16px; justify-content: center; margin-bottom: 30px; }
+.button-row { display: flex; gap: 16px; justify-content: center; margin-bottom: 30px; margin-top: 30px; }
 .btn { padding: 14px 32px; border-radius: 50px; font-weight: 600; font-size: 1rem; transition: transform 0.2s var(--transition); }
 .btn:hover { transform: scale(1.05); }
 .btn.primary { background: var(--text-main); color: var(--bg-body); }
 .btn.secondary { background: rgba(255,255,255,0.1); color: var(--text-main); }
+.btn-web { padding: 14px 32px; border-radius: 50px; font-weight: 600; font-size: 1rem; transition: transform 0.2s var(--transition); }
 .contact-meta { color: var(--text-muted); font-size: 0.9rem; }
 .contact-meta a { border-bottom: 1px solid rgba(255,255,255,0.2); }
 .site-footer { padding: 40px; text-align: center; font-size: 0.8rem; color: var(--text-muted); margin-top: 40px; position: relative; z-index: 1; }
@@ -711,4 +716,29 @@ ul { list-style: none; }
     font-size: 2rem; /* Slightly smaller font prevents wrapping issues */
     line-height: 1.2;
   }
+}
+.github-logo {
+  display: flex; /* Fixes alignment */
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.github-logo a {
+  display: block;
+  opacity: 0.7; /* Start slightly faded */
+  transition: all 0.3s ease;
+}
+
+.github-logo img {
+  width: 50px; /* Fixed aesthetic size */
+  height: auto;
+  display: block;
+}
+
+.github-logo a:hover {
+  opacity: 1;
+  transform: scale(1.1); /* Pop effect */
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5)); /* White glow */
 }
