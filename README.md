@@ -7,7 +7,7 @@
 This repository contains the source code for the personal portfolio website of **Chinmay Singh**, a Biomedical Engineer, Researcher, and Entrepreneur. The site is designed to showcase projects, research experience, and technical skills through a modern, interactive, and responsive interface.
 
 ## 🔗 Live Site
-[**View Portfolio Live**](#)
+[**View Portfolio Live**](https://chinmayksingh.com)
 
 ## 🛠 Tech Stack
 
@@ -70,14 +70,11 @@ Since this project uses static HTML/CSS/JS, no build process or package manager 
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/yourusername/portfolio.git](https://github.com/yourusername/portfolio.git)
+   git clone [https://github.com/chinmaysingh1/portfolio.git](https://github.com/chinmaysingh1/portfolio.git)
    ```
 
 2. **Open the site:**
    Simply locate `index.html` in your file explorer and double-click to open it in your browser.
-
-3. **Deploying:**
-   This repo is ready to be deployed on **GitHub Pages**, **Vercel**, or **Netlify**.
 
 ## 📞 Contact
 
