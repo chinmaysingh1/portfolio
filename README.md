@@ -7,7 +7,7 @@
 This repository contains the source code for the personal portfolio website of **Chinmay Singh**, a Biomedical Engineer, Researcher, and Entrepreneur. The site is designed to showcase projects, research experience, and technical skills through a modern, interactive, and responsive interface.
 
 ## 🔗 Live Site
-[**View Portfolio Live**](#) 
+[**View Portfolio Live**](#)
 
 ## 🛠 Tech Stack
 
@@ -28,10 +28,61 @@ The project is built using pure, vanilla web technologies to ensure high perform
 
 ## 📂 Project Structure
 
-```text
-├── assets/              # Images, PDFs, SVGs, and other static media
-├── styles.css           # Main stylesheet (Variables, Dark Mode, Animations)
-├── script.js            # Logic for Modals, Scroll Spy, and Background Blobs
-├── index.html           # Main landing page (Projects, Experience, Awards)
-├── gallery.html         # Secondary page for project photo galleries
-└── README.md            # Project documentation
+    ├── assets/              # Images, PDFs, SVGs, and other static media
+    ├── styles.css           # Main stylesheet (Variables, Dark Mode, Animations)
+    ├── script.js            # Logic for Modals, Scroll Spy, and Background Blobs
+    ├── index.html           # Main landing page (Projects, Experience, Awards)
+    ├── gallery.html         # Secondary page for project photo galleries
+    └── README.md            # Project documentation
+
+## 🚀 Projects Showcased
+
+The portfolio highlights several key initiatives and engineering projects:
+
+1. **KAIRS (Knee AI Rehab Sleeve)**
+   * *Co-Founder*: A wearable medical device using TensorFlow and IMU sensors to track patient recovery.
+   * *Awards*: NC State VenturePack Grand Prize ($13.5k), Global Runner-up Medtronic/BMES.
+
+2. **UNC iGEM (Synthetic Biology)**
+   * *Wet Lab Lead*: Engineered *E. coli* to uptake PFAS ("Forever Chemicals") from the gut.
+   * *Achievement*: Gold Medal at the 2025 iGEM Grand Jamboree in Paris.
+
+3. **BioCast**
+   * *Co-Founder*: A science communication platform/podcast featuring leaders like Dr. Robert Langer and NIH Directors.
+
+4. **Engineering World Health (EWH)**
+   * *President*: Re-launched the UNC chapter and organized the inaugural "Engineer-A-Thon."
+
+5. **Senior Design Capstone**
+   * *Lead*: VR environment and haptic feedback glove for stroke rehabilitation using Unreal Engine 5.
+
+## 🧬 Research Experience
+
+Includes work from:
+* **Sode Lab**: Antibody engineering and AlphaFold modeling.
+* **Stein Lab**: Stem cell culture and Brain Organoids (Autism research).
+* **Zylka Lab**: Pain research and spinal macrophages.
+* **Troester Lab**: Breast cancer disparities and epigenetics.
+
+## 💻 Installation & Usage
+
+Since this project uses static HTML/CSS/JS, no build process or package manager is required.
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/yourusername/portfolio.git](https://github.com/yourusername/portfolio.git)
+   ```
+
+2. **Open the site:**
+   Simply locate `index.html` in your file explorer and double-click to open it in your browser.
+
+3. **Deploying:**
+   This repo is ready to be deployed on **GitHub Pages**, **Vercel**, or **Netlify**.
+
+## 📞 Contact
+
+* **Email**: [Chinmay.Singh@unc.edu](mailto:Chinmay.Singh@unc.edu)
+* **LinkedIn**: [Chinmay Singh](https://www.linkedin.com/in/chinmayksingh/)
+
+---
+*© 2025 Chinmay Singh. All Rights Reserved.*
