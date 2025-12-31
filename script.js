@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const triggers = document.querySelectorAll('[data-modal]'); 
 
   // Modal IDs to cycle through
-  const modalIds = ['modal-kairs', 'modal-igem', 'modal-biocast', 'modal-ewh'];
+  const modalIds = ['modal-kairs', 'modal-igem', 'modal-biocast', 'modal-ewh', 'modal-capstone'];
   let currentIndex = 0;
 
   function openModal(modalId) {
