@@ -1,52 +1,37 @@
-# Portfolio Website (UNC Biomedical Engineering — Senior)
+# Chinmay Singh — Portfolio
 
-This is a simple static portfolio website scaffold for Chinmay Singh, a senior Biomedical Engineering major at the University of North Carolina at Chapel Hill. It includes sections for Projects, Awards, Education, and Contact plus a responsive layout.
+![Portfolio Preview](assets/ChinmayHeadshot.jpg)
 
-Files:
-- `index.html` — main single-page site (now contains Chinmay Singh's name and contact links)
-- `styles.css` — styles and responsive layout
-- `script.js` — small JS for navigation, smooth scroll, and project filtering
+> **Bridging the gap between biology and technology.**
 
-Contact info added to the site:
+This repository contains the source code for the personal portfolio website of **Chinmay Singh**, a Biomedical Engineer, Researcher, and Entrepreneur. The site is designed to showcase projects, research experience, and technical skills through a modern, interactive, and responsive interface.
 
-- `Chinmay.Singh@unc.edu`
-- `chinmayksingh@gmail.com`
-- `chinmay@kairs.ai`
+## 🔗 Live Site
+[**View Portfolio Live**](#) 
 
-Resume link:
+## 🛠 Tech Stack
 
-The resume file is expected at `assets/CSinghResume.pdf`. The site includes a download link pointing to that path; if you prefer a different filename or hosted URL, update the `href` in `index.html` accordingly.
+The project is built using pure, vanilla web technologies to ensure high performance and zero dependencies.
 
-Added assets and behavior:
+* **HTML5**: Semantic structure and accessibility.
+* **CSS3**: Custom variables (`:root`), Flexbox/Grid layouts, Animations (`@keyframes`), and Glassmorphism effects (`backdrop-filter`).
+* **JavaScript (ES6+)**: Intersection Observers for scroll animations, dynamic modal handling, and interactive background blobs.
 
-- Headshot: `assets/ChinmayHeadshot.jpg` (used in the hero card).
--- Project thumbnail placeholders are now included: `assets/project-pulse.svg`, `assets/project-ecg.svg`, `assets/project-gait.svg`.
+## ✨ Key Features
 
-New visual features added:
+* **Bento Grid Layout**: A modern, tile-based showcase for featured projects.
+* **Fluid Modals**: Custom-built JavaScript modals with a "liquid glass" aesthetic, featuring scrollable content and deep linking to the gallery.
+* **Interactive Background**: Physics-based floating blobs that react to mouse movement and clicks.
+* **Scroll Animations**: Elements fade in and slide up as the user scrolls (`IntersectionObserver`).
+* **Responsive Design**: Fully optimized for desktops, tablets, and mobile devices.
+* **Image Gallery**: A dedicated `gallery.html` page linking project visuals.
 
-- Animated ring around the headshot (CSS-driven). The headshot is larger and is now the primary focal point.
-- Split-screen diagonal accent in the hero for a modern overlap effect.
-- Floating micro-interaction blobs created dynamically by `script.js` — they subtly parallax with mouse movement and react on hover.
+## 📂 Project Structure
 
-If you'd like more/less motion for accessibility, tell me and I can reduce animation intensity or add a "reduced-motion" toggle.
-New features:
-
-- Dark theme with bold neon accents and animated hero blobs.
-- Click "View details" on any project to open a modal with more information and images.
-
-Preview locally (Windows PowerShell):
-
-Commands:
-
-Start-Process "index.html"
-
-Or run a simple HTTP server (recommended for testing JS/CSS behavior):
-
-python -m http.server 8000; Start-Process "http://localhost:8000"
-
-Next steps you might want me to do:
-- Replace placeholder text (name, email, resume link, project details)
-- Add images and thumbnails in an `assets/` folder
-- Add a contact form (Netlify / Formspree) or connect to GitHub pages deployment
-
-If you want, I can update content with your real name, email, resume, and project links now.
+```text
+├── assets/              # Images, PDFs, SVGs, and other static media
+├── styles.css           # Main stylesheet (Variables, Dark Mode, Animations)
+├── script.js            # Logic for Modals, Scroll Spy, and Background Blobs
+├── index.html           # Main landing page (Projects, Experience, Awards)
+├── gallery.html         # Secondary page for project photo galleries
+└── README.md            # Project documentation
