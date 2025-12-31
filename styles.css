@@ -750,3 +750,97 @@ ul { list-style: none; }
   transform: scale(1.1); /* Pop effect */
   filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5)); /* White glow */
 }
+
+/* --- FIXED MODAL LAYOUT --- */
+
+/* Ensure Mobile maintains card look, not fullscreen */
+@media (max-width: 768px) {
+  .modal-card {
+    width: 95% !important;
+    height: auto !important; 
+    max-height: 80vh !important;
+    border-radius: 16px !important;
+  }
+}
+/* --- FIXED MODAL SCROLLING --- */
+
+/* 1. The Wrapper handles the scrolling (Child) */
+.modal-scrollable {
+  flex: 1;               /* Fills the remaining height of the card */
+  overflow-y: auto;      /* Enables scrolling HERE, not on the card */
+  position: relative;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) transparent;
+}
+
+/* Scrollbar Styling */
+.modal-scrollable::-webkit-scrollbar { width: 6px; }
+.modal-scrollable::-webkit-scrollbar-track { background: transparent; }
+.modal-scrollable::-webkit-scrollbar-thumb { background-color: var(--accent); border-radius: 20px; }
+
+/* 2. The Card becomes a Container (Parent) */
+/* IMPORTANT: We only apply flex when the card is active/rendering to avoid the 'smushed' bug */
+.modal-card.active,
+.modal-card.rendering {
+  display: flex !important;       /* Switch to Flexbox Layout */
+  flex-direction: column;         /* Stack items vertically */
+  overflow: hidden !important;    /* Disable scrolling on the parent card */
+}
+
+/* 3. Scroll Prompt Styling */
+.scroll-prompt {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  padding: 6px 16px;
+  border-radius: 20px;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  pointer-events: none; /* Let clicks pass through to content behind */
+  animation: promptBounce 2s infinite;
+  transition: opacity 0.3s ease;
+}
+
+/* This class is added by JS to fade it out */
+.scroll-prompt.hidden {
+  opacity: 0;
+}
+
+@keyframes promptBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(5px); }
+}
+
+/* 4. Gallery Hover Effect */
+.modal-body a[href*="gallery"] {
+  display: block;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.modal-body a[href*="gallery"]::before {
+  content: ""; position: absolute; inset: 0;
+  background: rgba(0, 0, 0, 0.4); opacity: 0;
+  transition: opacity 0.3s ease; z-index: 5;
+}
+
+.modal-body a[href*="gallery"]::after {
+  content: "View Gallery ↗";
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  background: var(--accent); color: white;
+  padding: 10px 20px; border-radius: 30px;
+  font-weight: 600; font-size: 0.9rem;
+  opacity: 0; transition: all 0.3s ease;
+  z-index: 6; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.modal-body a[href*="gallery"]:hover::before { opacity: 1; }
+.modal-body a[href*="gallery"]:hover::after { opacity: 1; transform: translate(-50%, -50%) scale(1); }

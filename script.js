@@ -33,12 +33,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function openModal(modalId) {
     // 1. Reset state
+    // NEW CODE:
     document.querySelectorAll('.modal-card').forEach(card => {
       card.classList.remove('active', 'rendering');
       card.style.display = 'none'; 
-      card.scrollTop = 0; 
+      // Reset scroll on the inner wrapper
+      const scrollable = card.querySelector('.modal-scrollable');
+      if (scrollable) scrollable.scrollTop = 0;
     });
-
     const targetModal = document.getElementById(modalId);
     
     if (targetModal && modalContainer) {
@@ -244,4 +246,22 @@ document.addEventListener('DOMContentLoaded', () => {
   
   window.addEventListener("scroll", activeMenu);
   activeMenu();
+
+  // --- 5. Scroll Prompt Logic ---
+  // Hides the "Scroll for details" text when the user scrolls down
+  const scrollables = document.querySelectorAll('.modal-scrollable');
+  
+  scrollables.forEach(el => {
+    el.addEventListener('scroll', () => {
+      const prompt = el.parentElement.querySelector('.scroll-prompt');
+      if (prompt) {
+        // Hide if scrolled more than 50px
+        if (el.scrollTop > 50) {
+          prompt.classList.add('hidden');
+        } else {
+          prompt.classList.remove('hidden');
+        }
+      }
+    });
+  });
 });
