@@ -311,16 +311,16 @@ ul { list-style: none; }
 .timeline-item::before {
   content: "";
   position: absolute;
-  left: 14px; /* Perfectly centered on the 2px line at left:20px */
-  top: 32px; /* Aligns with the card title */
+  left: 12px; /* CHANGED FROM 14px: Perfectly centers the 18px dot on the 21px line center */
+  top: 32px; 
   width: 14px;
   height: 14px;
   background: var(--bg-body);
-  border: 2px solid rgba(255, 255, 255, 0.2); /* Subtle inactive state */
+  border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 50%;
   z-index: 2;
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-  box-shadow: 0 0 0 4px var(--bg-body); /* Creates the "gap" visually */
+  box-shadow: 0 0 0 4px var(--bg-body); 
 }
 
 /* Active State for Dot on Hover - Glows instead of moving */
@@ -687,9 +687,9 @@ ul { list-style: none; }
     grid-template-columns: 1fr; /* Stack date and card */
     gap: 10px;
   }
-  /* Align dot with new line position */
+/* Align dot with new line position on small phones */
   .timeline-item::before {
-    left: 4px;
+    left: 2px; /* CHANGED FROM 4px: Aligns with the mobile line at 10px */
   }
   /* Align date text to left */
   .timeline-left {
