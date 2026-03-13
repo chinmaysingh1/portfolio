@@ -844,3 +844,155 @@ ul { list-style: none; }
 
 .modal-body a[href*="gallery"]:hover::before { opacity: 1; }
 .modal-body a[href*="gallery"]:hover::after { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+
+/* Preloader Styles */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #050505;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+}
+
+.loader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.ekg-line {
+    width: 150px;
+    height: 75px;
+    fill: none;
+    stroke: #00ffcc; /* Sci-fi cyan */
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 0 8px #00ffcc);
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    animation: heartbeat 2s linear infinite;
+}
+
+@keyframes heartbeat {
+    0% { stroke-dashoffset: 200; }
+    50% { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: -200; }
+}
+
+.terminal-text {
+    font-family: 'Courier New', Courier, monospace;
+    color: #00ffcc;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+}
+
+.cursor {
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* Personal Grid Specific Layout */
+.bento-grid.personal-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto; /* THIS IS THE FIX: Allows cards to expand naturally */
+    gap: 24px;
+}
+
+.personal-grid .full-width {
+    grid-column: 1 / -1; /* Spans across both columns */
+}
+
+.personal-grid .half-width {
+    grid-column: span 1; /* Takes up one column */
+}
+
+/* Make sure the cards stretch to equal heights on the second row */
+.personal-grid .bento-card {
+    min-height: 280px; 
+    height: 100%;
+}
+
+/* Mobile responsiveness: Stack everything on smaller screens */
+@media (max-width: 768px) {
+    .bento-grid.personal-grid {
+        grid-template-columns: 1fr;
+    }
+    .personal-grid .half-width,
+    .personal-grid .full-width {
+        grid-column: 1 / -1;
+    }
+}
+
+/* --- HERO SECTION REFINEMENTS (UPDATED) --- */
+
+/* Fix the container so the image and buttons stack neatly */
+.hero-visual {
+    flex-direction: column !important;
+    align-items: center !important;
+}
+
+/* 1. Scale up the Headshot significantly */
+.avatar-container {
+    width: 420px !important; /* Increased drastically to make it dominant */
+    height: 420px !important;
+    margin: 0 auto; 
+    flex-shrink: 0; /* Forces flexbox to respect the larger size */
+}
+
+/* 2. Style the new Hero buttons to prevent elongation */
+.hero-action-buttons {
+    display: flex;
+    flex-direction: row !important; /* Force side-by-side on desktop */
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px; 
+    position: relative;
+    z-index: 10;
+}
+
+/* Lock the button widths so they only hug the text */
+.hero-action-buttons .btn {
+    width: auto !important; 
+    display: inline-block;
+    flex-grow: 0 !important; 
+}
+
+/* 3. Reduce the vertical gap between Hero and About sections */
+.hero.container {
+    min-height: auto !important;
+    padding-bottom: 20px !important; 
+}
+
+#about.section {
+    padding-top: 90px !important; 
+    margin-top: 0 !important;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .avatar-container {
+        width: 280px !important;
+        height: 280px !important;
+    }
+    .hero-action-buttons {
+        flex-direction: column !important;
+        width: 100%;
+        max-width: 300px; /* Keeps mobile buttons from getting ridiculously wide */
+    }
+    .hero-action-buttons .btn {
+        width: 100% !important; /* Only stretch on mobile */
+        text-align: center;
+    }
+}

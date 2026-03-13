@@ -265,3 +265,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+// Preloader Logic
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    const loadText = document.getElementById('loading-text');
+    let dots = 0;
+    
+    // Simulate terminal loading text
+    const textInterval = setInterval(() => {
+        dots = (dots + 1) % 4;
+        loadText.innerText = "BOOTING_SYSTEM" + ".".repeat(dots);
+    }, 300);
+
+    // Fade out after a slight delay for visual effect
+    setTimeout(() => {
+        clearInterval(textInterval);
+        preloader.style.opacity = '0';
+        preloader.style.visibility = 'hidden';
+    }, 2000); // Adjust time as needed
+});
