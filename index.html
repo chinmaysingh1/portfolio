@@ -15,14 +15,20 @@
   </head>
   <body>
     <div id="preloader">
-      <div class="loader-content">
-          <svg class="ekg-line" viewBox="0 0 100 50">
-              <polyline points="0,25 20,25 28,10 38,45 46,25 60,25 65,18 70,32 75,25 100,25" />
-          </svg>
-          <div class="terminal-text">
-              <span id="loading-text">BOOTING_SYSTEM</span><span class="cursor">_</span>
-          </div>
-      </div>
+        <svg class="ekg-line ekg-slow" viewBox="0 0 100 50">
+            <polyline points="0,25 20,25 28,10 38,45 46,25 60,25 65,18 70,32 75,25 100,25" />
+        </svg>
+        
+        <div class="terminal-container">
+            <button id="initiate-btn" class="glitch-btn">[ INITIATE_SYSTEM ]<span class="cursor">_</span></button>
+            
+            <div id="boot-sequence" style="display: none;">
+                <div class="term-line">> INITIALIZING_SYS... <span class="status">[OK]</span></div>
+                <div class="term-line">> LOADING_INTERFACE... <span class="status">[OK]</span></div>
+                <div class="term-line">> CALIBRATING_HARDWARE... <span class="status">[OK]</span></div>
+                <div class="term-line">> SYSTEM_READY <span class="status">[OK]</span></div>
+            </div>
+        </div>
     </div>
     <div id="blob-container"></div>
     <nav class="navbar">
@@ -47,7 +53,7 @@
           
           <div class="hero-stats">
             <div class="stat">
-              <span class="stat-num">$13.5k</span>
+              <span class="stat-num">$15.5k</span>
               <span class="stat-label">Funding Won</span>
             </div>
             <div class="stat">
@@ -67,9 +73,18 @@
             <img src="assets/ChinmayHeadshot.jpg" alt="Chinmay Singh" class="avatar-img" />
           </div>
           
-          <div class="hero-action-buttons">
-            <a href="mailto:Chinmay.Singh@unc.edu" class="btn primary">Get in Touch</a>
-            <a href="assets/CSinghResume.pdf" target="_blank" class="btn secondary">Resume</a>
+          <div class="hero-action-buttons icon-row">
+            <a href="mailto:Chinmay.Singh@unc.edu" class="icon-btn" aria-label="Email">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </a>
+            
+            <a href="https://www.linkedin.com/in/chinmayksingh/" class="icon-btn" aria-label="LinkedIn" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+            
+            <a href="https://github.com/chinmaysingh1" class="icon-btn" aria-label="GitHub" target="_blank">
+              <img src="assets/github-mark-white.svg" alt="GitHub" width="22" height="22" style="filter: brightness(100%);">
+            </a>
           </div>
         </div>
       </section>
@@ -152,7 +167,7 @@
             <div class="card-content">
               <div class="card-top">
                 <div class="tag">Startup • Medical Device</div>
-                <div class="award-pill">🏆 $13.5k Won</div>
+                <div class="award-pill">🏆 $15.5k Won</div>
               </div>
               <h3>KAIRS</h3>
               <p>Co-Founder. Developing a knee rehabilitation sleeve using AI to track patient recovery. <br><strong>Winner:</strong> NC State VenturePack Grand Prize 2025. <br><strong>Global First Runner-Up: </strong>2024 Medtronic/BMES Student Design Competition. </p>
@@ -355,17 +370,10 @@
 
 
       <section id="contact" class="section container center-text reveal">
-        <h2>Let's Build Together</h2>
-        <p class="status-update">
-            Incoming M.S.E. Candidate at Johns Hopkins University <br>
-            <span class="highlight">Center for Bioengineering Innovation & Design (CBID) | Class of 2027</span>
-        </p>
+        <h2>My Resume / Business Email</h2>
         <div class="button-row">
-          <a href="mailto:Chinmay.Singh@unc.edu" class="btn primary">Email Me</a>
-          <a href="assets/CSinghResume.pdf" target="_blank" class="btn secondary">Download Resume</a>
-        </div>
-        <div class="contact-meta">
-          <a href="https://www.linkedin.com/in/chinmayksingh/" target="_blank">LinkedIn</a> • <a href="mailto:chinmay@kairs.ai">chinmay@kairs.ai</a>
+          <a href="assets/CSinghResume.pdf" target="_blank" class="btn primary">Download Resume</a>
+          <a href="mailto:chinmay@kairs.ai" class="btn secondary">Business Email</a>
         </div>
       </section>
     </main>
@@ -410,7 +418,7 @@
 
             <div class="modal-section-title">Impact & Awards</div>
             <ul class="modal-list">
-              <li><strong>$13,500 Funding:</strong> Secured non-dilutive, equity-free funding.</li>
+              <li><strong>$15,500 Funding:</strong> Secured non-dilutive, equity-free funding.</li>
               <li><strong>Grand Champion:</strong> NC State VenturePack Challenge 2025 (also voted Audience's Choice Winner).</li>
               <li><strong>Global Runner-Up:</strong> 2nd Place at 2024 BMES/Medtronic Student Design Competition.</li>
               <li><strong>Second Place:</strong> 2nd place at the 2025 NC State Wolf Den Competition</li>

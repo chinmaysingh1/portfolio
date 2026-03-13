@@ -266,22 +266,42 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Preloader Logic
-window.addEventListener('load', () => {
+// Interactive Boot Sequence
+document.addEventListener('DOMContentLoaded', () => {
     const preloader = document.getElementById('preloader');
-    const loadText = document.getElementById('loading-text');
-    let dots = 0;
-    
-    // Simulate terminal loading text
-    const textInterval = setInterval(() => {
-        dots = (dots + 1) % 4;
-        loadText.innerText = "BOOTING_SYSTEM" + ".".repeat(dots);
-    }, 300);
+    const initiateBtn = document.getElementById('initiate-btn');
+    const bootSequence = document.getElementById('boot-sequence');
+    const termLines = document.querySelectorAll('.term-line');
+    const ekgLine = document.querySelector('.ekg-line');
 
-    // Fade out after a slight delay for visual effect
-    setTimeout(() => {
-        clearInterval(textInterval);
-        preloader.style.opacity = '0';
-        preloader.style.visibility = 'hidden';
-    }, 2000); // Adjust time as needed
+    initiateBtn.addEventListener('click', () => {
+        // 1. Hide the button and show the terminal lines
+        initiateBtn.style.display = 'none';
+        bootSequence.style.display = 'flex';
+
+        // 2. Spike the EKG (switches to fast, red animation)
+        ekgLine.classList.remove('ekg-slow');
+        ekgLine.classList.add('ekg-fast');
+
+        // 3. Rapidly type out the terminal lines
+        termLines.forEach((line, index) => {
+            setTimeout(() => {
+                line.classList.add('visible');
+            }, index * 250); // Fast 250ms delay between lines
+        });
+
+        // 4. Calculate total time to wait before dissolving the screen
+        const totalTextTime = termLines.length * 250;
+        
+        setTimeout(() => {
+            // Add the class that scales and blurs the screen away
+            preloader.classList.add('system-active');
+            
+            // Completely remove it from the DOM after the CSS transition finishes
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 800); 
+            
+        }, totalTextTime + 500); // 500ms pause to read "SYSTEM_ONLINE"
+    });
 });

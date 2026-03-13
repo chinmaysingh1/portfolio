@@ -99,7 +99,7 @@ ul { list-style: none; }
 .hero {
   min-height: 90vh;
   display: flex; align-items: center; justify-content: space-between;
-  padding-top: 100px; padding-bottom: 60px;
+  padding-top: 150px; padding-bottom: 60px;
   gap: 40px;
   position: relative; z-index: 1;
 }
@@ -845,7 +845,7 @@ ul { list-style: none; }
 .modal-body a[href*="gallery"]:hover::before { opacity: 1; }
 .modal-body a[href*="gallery"]:hover::after { opacity: 1; transform: translate(-50%, -50%) scale(1); }
 
-/* Preloader Styles */
+/* --- INTERACTIVE PRELOADER STYLES --- */
 #preloader {
     position: fixed;
     top: 0;
@@ -854,31 +854,41 @@ ul { list-style: none; }
     height: 100vh;
     background: #050505;
     z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+    /* This handles the cinematic dissolve at the end */
+    transition: opacity 0.8s cubic-bezier(0.8, 0, 0.2, 1), transform 0.8s cubic-bezier(0.8, 0, 0.2, 1), filter 0.8s ease;
 }
 
-.loader-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
+/* Positioned exactly 35% from the top so it doesn't push the text down */
 .ekg-line {
+    position: absolute;
+    top: 35%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 150px;
     height: 75px;
     fill: none;
-    stroke: #00ffcc; /* Sci-fi cyan */
     stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round;
-    filter: drop-shadow(0 0 8px #00ffcc);
     stroke-dasharray: 200;
     stroke-dashoffset: 200;
-    animation: heartbeat 2s linear infinite;
+    transition: all 0.3s ease;
+}
+
+/* Idle State */
+.ekg-slow { 
+    stroke: #00ffcc;
+    filter: drop-shadow(0 0 8px #00ffcc);
+    animation: heartbeat 2.5s linear infinite; 
+    opacity: 0.6; 
+}
+
+/* Active State (Triggered on click) */
+.ekg-fast { 
+    stroke: #ff0055; 
+    filter: drop-shadow(0 0 15px #ff0055);
+    animation: heartbeat 0.5s linear infinite; 
+    opacity: 1; 
 }
 
 @keyframes heartbeat {
@@ -887,19 +897,76 @@ ul { list-style: none; }
     100% { stroke-dashoffset: -200; }
 }
 
-.terminal-text {
+/* Locks the entire terminal block in the center of the screen */
+.terminal-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the button and the text BLOCK horizontally */
     font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95rem;
+    letter-spacing: 1.5px;
+}
+
+/* The hidden boot sequence */
+#boot-sequence {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* THIS IS THE FIX: Forces all lines to left-align against each other */
+    gap: 10px;
+}
+
+/* Individual terminal lines */
+.term-line {
+    color: #ccc;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    text-align: left; /* Reinforces the left alignment */
+    white-space: nowrap; /* Prevents the text from wrapping onto a second line on small phone screens */
+}
+
+/* The interactive button styling */
+#initiate-btn {
+    background: none;
+    border: 1px solid rgba(0, 255, 204, 0.3);
     color: #00ffcc;
-    font-size: 0.9rem;
-    letter-spacing: 2px;
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 15px 30px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.1) inset;
 }
 
-.cursor {
-    animation: blink 1s step-end infinite;
+#initiate-btn:hover {
+    background: rgba(0, 255, 204, 0.1);
+    border-color: #00ffcc;
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.4) inset, 0 0 20px rgba(0, 255, 204, 0.2);
+    transform: scale(1.05);
 }
 
-@keyframes blink {
-    50% { opacity: 0; }
+.term-line.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.term-line .status {
+    color: #00ffcc;
+    font-weight: bold;
+}
+
+/* The exit animation class added by JS */
+#preloader.system-active {
+    opacity: 0;
+    transform: scale(1.1); /* Creates a subtle "zoom past" effect */
+    filter: blur(10px);
+    pointer-events: none;
 }
 
 /* Personal Grid Specific Layout */
@@ -995,4 +1062,50 @@ ul { list-style: none; }
         width: 100% !important; /* Only stretch on mobile */
         text-align: center;
     }
+}
+
+/* --- ICON BUTTON STYLES --- */
+.icon-row {
+    gap: 20px !important; /* Spacing between the circles */
+}
+
+.icon-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Makes them perfect circles */
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.icon-btn svg {
+    transition: stroke 0.3s ease;
+}
+
+.icon-btn img {
+    transition: filter 0.3s ease;
+}
+
+/* Hover Effects */
+.icon-btn:hover {
+    background: rgba(0, 255, 204, 0.15); /* Subtle cyan tint */
+    border-color: rgba(0, 255, 204, 0.5);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 255, 204, 0.25);
+}
+
+.icon-btn:hover svg {
+    stroke: #00ffcc; /* Makes the SVG lines glow cyan */
+}
+
+/* Optional: To make the white GitHub image tinted cyan on hover */
+.icon-btn:hover img {
+    filter: invert(72%) sepia(85%) saturate(3015%) hue-rotate(119deg) brightness(103%) contrast(102%);
 }
