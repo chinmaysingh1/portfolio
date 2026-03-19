@@ -171,7 +171,7 @@
             <div class="gallery-item" data-gallery-id="kairs">
                 <div class="album-cover">
                     <span class="album-count">6 Photos</span>
-                    <img src="assets/KAIRS_Pitch.jpeg" alt="KAIRS Album" style="padding: 30px; object-fit: contain;">
+                    <img src="assets/KAIRS_Pitch.webp" alt="KAIRS Album" loading="lazy" style="padding: 30px; object-fit: contain;">
                     <div class="gallery-caption">
                         <h3>KAIRS Development</h3>
                         <p>Prototyping, awards and recognition, and pitch competitions.</p>
@@ -182,7 +182,7 @@
             <div class="gallery-item" data-gallery-id="igem">
                 <div class="album-cover">
                     <span class="album-count">4 Photos</span>
-                    <img src="assets/iGEM.JPG" alt="iGEM Album" style="padding: 30px; object-fit: contain;">
+                    <img src="assets/iGEM.webp" alt="iGEM Album" loading="lazy" style="padding: 30px; object-fit: contain;">
                     <div class="gallery-caption">
                         <h3>iGEM Wet Lab</h3>
                         <p>Genetic engineering, cell culture, and team collaboration.</p>
@@ -193,7 +193,7 @@
             <div class="gallery-item" data-gallery-id="biocast">
                 <div class="album-cover">
                     <span class="album-count">4 Photos</span>
-                    <img src="assets/BioCastLogo.PNG" alt="BioCast Album" style="object-position: top;">
+                    <img src="assets/BioCastLogo.webp" alt="BioCast Album" loading="lazy" style="object-position: top;">
                     <div class="gallery-caption">
                         <h3>BioCast</h3>
                         <p>Combatting scientific misinformation, one interview at a time.</p>
@@ -204,7 +204,7 @@
             <div class="gallery-item" data-gallery-id="ewh">
                 <div class="album-cover">
                     <span class="album-count">5 Photos</span>
-                    <img src="assets/EWH.JPG" alt="EWH Album" style="padding: 30px; object-fit: contain;">
+                    <img src="assets/EWH.webp" alt="EWH Album" loading="lazy" style="padding: 30px; object-fit: contain;">
                     <div class="gallery-caption">
                         <h3>Engineering World Health @ UNC</h3>
                         <p>Circuit building, soldering, and teaching events.</p>
@@ -212,18 +212,16 @@
                 </div>
             </div>
 
-
         <div class="gallery-item" data-gallery-id="capstone">
                 <div class="album-cover">
                     <span class="album-count">4 Photos</span>
-                    <img src="assets/ThreeMusk.JPG" alt="The Three Musketeeers" style="padding: 30px; object-fit: contain;">
+                    <img src="assets/ThreeMusk.webp" alt="The Three Musketeeers" loading="lazy" style="padding: 30px; object-fit: contain;">
                     <div class="gallery-caption">
                         <h3>Senior Design Capstone Project</h3>
                         <p>Clinician interviews, VR Development, and hardware prototyping with haptic feedback glove.</p>
                     </div>
                 </div>
         </div>
-
 
         </div>
       </section>
@@ -276,39 +274,40 @@
              let currentImageIndex = 0;
              
              // DATA: Distinct Albums (Reusing assets as placeholders)
+             // DATA: Distinct Albums (Optimized to WebP)
              const albums = {
                  'kairs': [
-                     { src: 'assets/KAIRS_Pitch.jpeg', caption: 'Chinmay Singh pitching KAIRS at the 2025 NC State VenturePack Awards Ceremony.', type: 'img' },
-                     { src: 'assets/IMUSetup.jpeg', caption: 'Initial Setup for KAIRS Prototype and Proof of Concept using IMU sensors.', type: 'img' },
-                     { src: 'assets/KAIRS_Firmware_Code.png', caption: 'Firmware code for IMU testing, analyzing yaw, roll, and pitch.', type: 'img' },
-                     { src: 'assets/KAIRS_VP.jpeg', caption: 'KAIRS Team accepting their 2025 VenturePack Grand Prize Award.', type: 'img' },
-                     { src: 'assets/KAIRS_VP2.jpeg', caption: 'KAIRS Team accepting their 2025 VenturePack Audience Choice Award.', type: 'img' },
-                     { src: 'assets/KAIRS_BMES.jpeg', caption: 'Chinmay after presenting KAIRS at the 2024 Medtronic/BMES Student Design Competition.', type: 'img' }
+                     { src: 'assets/KAIRS_Pitch.webp', caption: 'Chinmay Singh pitching KAIRS at the 2025 NC State VenturePack Awards Ceremony.', type: 'img' },
+                     { src: 'assets/IMUSetup.webp', caption: 'Initial Setup for KAIRS Prototype and Proof of Concept using IMU sensors.', type: 'img' },
+                     { src: 'assets/KAIRS_Firmware_Code.webp', caption: 'Firmware code for IMU testing, analyzing yaw, roll, and pitch.', type: 'img' },
+                     { src: 'assets/KAIRS_VP.webp', caption: 'KAIRS Team accepting their 2025 VenturePack Grand Prize Award.', type: 'img' },
+                     { src: 'assets/KAIRS_VP2.webp', caption: 'KAIRS Team accepting their 2025 VenturePack Audience Choice Award.', type: 'img' },
+                     { src: 'assets/KAIRS_BMES.webp', caption: 'Chinmay after presenting KAIRS at the 2024 Medtronic/BMES Student Design Competition.', type: 'img' }
                  ],
                  'igem': [
-                     { src: 'assets/iGEM.JPG', caption: 'UNC iGEM team after winning Gold at the 2025 iGEM Grand Jamboree.', type: 'img' },
-                     { src: 'assets/Deposition.jpg', caption: 'Deposition curve for electrochemistry techniques used to quantify PFAS; in this case, electrodes are treated with Meldola Blue.', type: 'img' },
-                     { src: 'assets/DPVCurve.jpg', caption: 'Differential Pulse Voltammetry Curve during PFAS quantification.', type: 'img' },
-                     { src: 'assets/ResultsiGEM.jpg', caption: 'Results for PFAS Quantification in parts per trillion across different conditions; top row is PFAS quantification when treated with a small-molecule inhibitor, while bottom row is PFAS quantification for three different engineered probiotics.', type: 'img' }
+                     { src: 'assets/iGEM.webp', caption: 'UNC iGEM team after winning Gold at the 2025 iGEM Grand Jamboree.', type: 'img' },
+                     { src: 'assets/Deposition.webp', caption: 'Deposition curve for electrochemistry techniques used to quantify PFAS; in this case, electrodes are treated with Meldola Blue.', type: 'img' },
+                     { src: 'assets/DPVCurve.webp', caption: 'Differential Pulse Voltammetry Curve during PFAS quantification.', type: 'img' },
+                     { src: 'assets/ResultsiGEM.webp', caption: 'Results for PFAS Quantification in parts per trillion across different conditions; top row is PFAS quantification when treated with a small-molecule inhibitor, while bottom row is PFAS quantification for three different engineered probiotics.', type: 'img' }
                  ],
                  'biocast': [
-                     { src: 'assets/BioCastLogo.PNG', caption: 'BioCast Logo', type: 'img' },
-                     { src: 'assets/PanchEpisode.png', caption: 'Interview with Dr. Sethuraman Panchanathan, director of the National Science Foundation.', type: 'img' },
-                     { src: 'assets/SchererEpisode.png', caption: 'Interview with Dr. Steven Scherer, director of research at SickKids Hospital.', type: 'img' },
-                     { src: 'assets/MarrazzoEp.png', caption: 'Interview with Dr. Jeanne Marrazzo, director of the National Institute of Allergy and Infectious Diseases.', type: 'img' }
+                     { src: 'assets/BioCastLogo.webp', caption: 'BioCast Logo', type: 'img' },
+                     { src: 'assets/PanchEpisode.webp', caption: 'Interview with Dr. Sethuraman Panchanathan, director of the National Science Foundation.', type: 'img' },
+                     { src: 'assets/SchererEpisode.webp', caption: 'Interview with Dr. Steven Scherer, director of research at SickKids Hospital.', type: 'img' },
+                     { src: 'assets/MarrazzoEp.webp', caption: 'Interview with Dr. Jeanne Marrazzo, director of the National Institute of Allergy and Infectious Diseases.', type: 'img' }
                  ],
                  'ewh': [
-                     { src: 'assets/EWH.JPG', caption: 'EWH: Schematic for the optical heart rate monitor.', type: 'img' },
-                     { src: 'assets/Engineer-A-Thon.jpeg', caption: 'EWH: Students learning soldering techniques.', type: 'img' },
-                     { src: 'assets/EAThon-2.jpeg', caption: 'EWH: Completed kit testing on the oscilloscope.', type: 'img' },
-                     { src: 'assets/EAThon-3.jpeg', caption: 'EWH: Schematic for the optical heart rate monitor.', type: 'img' }, 
-                     { src: 'assets/EAThon-4.jpeg', caption: 'EWH: Schematic for the optical heart rate monitor.', type: 'img' },
+                     { src: 'assets/EWH.webp', caption: 'EWH: Schematic for the optical heart rate monitor.', type: 'img' },
+                     { src: 'assets/Engineer-A-Thon.webp', caption: 'EWH: Students learning soldering techniques.', type: 'img' },
+                     { src: 'assets/EAThon-2.webp', caption: 'EWH: Completed kit testing on the oscilloscope.', type: 'img' },
+                     { src: 'assets/EAThon-3.webp', caption: 'EWH: Schematic for the optical heart rate monitor.', type: 'img' }, 
+                     { src: 'assets/EAThon-4.webp', caption: 'EWH: Schematic for the optical heart rate monitor.', type: 'img' },
                  ], 
                  'capstone': [
-                     { src: 'assets/ThreeMusk.JPG', caption: 'Three Musketeers Senior Design Capstone Group Visiting New York to visit the Bouton Lab.', type: 'img' },
-                     { src: 'assets/Environment.png', caption: 'Rendering of the Virtual Reality Environment created for the stroke rehabilitation patients. Pictured are a comforting environment (with lo-fi music playing in the background), grabbable components, such as a spoon, plate, and cup, and a VRPawn.', type: 'img' },
-                     { src: 'assets/Blueprint.png', caption: 'One blueprint that went into the Proof of Concept design, such that when the spoon touches the plate and hitboxes overlap, the widget blueprint (pictured in the next image) updates accordingly, where the "Done" is invisible until the action is completed.', type: 'img' },
-                     { src: 'assets/WidgetBlueprint.png', caption: 'The widget blueprint, attached to the VRPawn, which is displayed in front of the viewer at all times when they are completing actions within the environment.', type: 'img' },
+                     { src: 'assets/ThreeMusk.webp', caption: 'Three Musketeers Senior Design Capstone Group Visiting New York to visit the Bouton Lab.', type: 'img' },
+                     { src: 'assets/Environment.webp', caption: 'Rendering of the Virtual Reality Environment created for the stroke rehabilitation patients. Pictured are a comforting environment (with lo-fi music playing in the background), grabbable components, such as a spoon, plate, and cup, and a VRPawn.', type: 'img' },
+                     { src: 'assets/Blueprint.webp', caption: 'One blueprint that went into the Proof of Concept design, such that when the spoon touches the plate and hitboxes overlap, the widget blueprint (pictured in the next image) updates accordingly, where the "Done" is invisible until the action is completed.', type: 'img' },
+                     { src: 'assets/WidgetBlueprint.webp', caption: 'The widget blueprint, attached to the VRPawn, which is displayed in front of the viewer at all times when they are completing actions within the environment.', type: 'img' },
                  ],
              };
 

@@ -27,13 +27,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeButtons = document.querySelectorAll('.modal-close');
   const triggers = document.querySelectorAll('[data-modal]'); 
 
-  // Modal IDs to cycle through
-  const modalIds = ['modal-kairs', 'modal-igem', 'modal-biocast', 'modal-ewh', 'modal-capstone'];
+  // Define separate groups for your carousels
+  const featuredModalIds = ['modal-kairs', 'modal-igem', 'modal-biocast', 'modal-ewh', 'modal-capstone'];
+  const narrativeModalIds = ['modal-mission', 'modal-adventures']; 
+  // Note: if you kept hardware as a modal, add 'modal-hardware' to the array above!
+
+  let currentModalGroup = [];
   let currentIndex = 0;
 
   function openModal(modalId) {
     // 1. Reset state
-    // NEW CODE:
     document.querySelectorAll('.modal-card').forEach(card => {
       card.classList.remove('active', 'rendering');
       card.style.display = 'none'; 
@@ -47,8 +50,31 @@ document.addEventListener('DOMContentLoaded', () => {
       modalContainer.classList.add('active');
       document.body.style.overflow = 'hidden'; 
       
-      // Update current index for next/prev buttons
-      currentIndex = modalIds.indexOf(modalId);
+      // Determine which carousel group we are currently in
+      if (featuredModalIds.includes(modalId)) {
+          currentModalGroup = featuredModalIds;
+      } else if (narrativeModalIds.includes(modalId)) {
+          currentModalGroup = narrativeModalIds;
+      } else {
+          // Fallback just in case a modal isn't in a list
+          currentModalGroup = [modalId]; 
+      }
+
+      // Update current index for next/prev buttons based on the active group
+      currentIndex = currentModalGroup.indexOf(modalId);
+
+      // Hide arrows if there is only 1 item in the current group
+      const prevBtn = document.querySelector('.nav-arrow.nav-prev');
+      const nextBtn = document.querySelector('.nav-arrow.nav-next');
+      if (prevBtn && nextBtn) {
+          if (currentModalGroup.length <= 1) {
+              prevBtn.style.display = 'none';
+              nextBtn.style.display = 'none';
+          } else {
+              prevBtn.style.display = 'flex';
+              nextBtn.style.display = 'flex';
+          }
+      }
 
       // 2. FLUID ANIMATION TRICK
       targetModal.style.display = 'block';
@@ -75,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 500);
   }
 
-  // --- Event Listeners (Fixed for Background Click) ---
+  // --- Event Listeners ---
   if (modalContainer) {
     triggers.forEach(trigger => {
       trigger.addEventListener('click', (e) => {
@@ -91,16 +117,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (prevBtn && nextBtn) {
       prevBtn.addEventListener('click', (e) => {
         e.stopPropagation();
+        if (currentModalGroup.length <= 1) return; // Prevent cycling if only 1 item
         let newIndex = currentIndex - 1;
-        if (newIndex < 0) newIndex = modalIds.length - 1;
-        openModal(modalIds[newIndex]);
+        if (newIndex < 0) newIndex = currentModalGroup.length - 1;
+        openModal(currentModalGroup[newIndex]);
       });
 
       nextBtn.addEventListener('click', (e) => {
         e.stopPropagation();
+        if (currentModalGroup.length <= 1) return; // Prevent cycling if only 1 item
         let newIndex = currentIndex + 1;
-        if (newIndex >= modalIds.length) newIndex = 0;
-        openModal(modalIds[newIndex]);
+        if (newIndex >= currentModalGroup.length) newIndex = 0;
+        openModal(currentModalGroup[newIndex]);
       });
     }
 
@@ -266,42 +294,57 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Interactive Boot Sequence
+// Interactive Boot Sequence (Session Storage Enabled)
 document.addEventListener('DOMContentLoaded', () => {
     const preloader = document.getElementById('preloader');
+    
+    // 1. Check if the user has already seen the animation this session
+    if (sessionStorage.getItem('bootSequencePlayed') === 'true') {
+        // If yes, instantly hide the preloader and exit the function
+        if (preloader) preloader.style.display = 'none';
+        return; 
+    }
+
+    // 2. If they haven't seen it, set up the animation
     const initiateBtn = document.getElementById('initiate-btn');
     const bootSequence = document.getElementById('boot-sequence');
     const termLines = document.querySelectorAll('.term-line');
     const ekgLine = document.querySelector('.ekg-line');
 
-    initiateBtn.addEventListener('click', () => {
-        // 1. Hide the button and show the terminal lines
-        initiateBtn.style.display = 'none';
-        bootSequence.style.display = 'flex';
+    if (initiateBtn && preloader) {
+        initiateBtn.addEventListener('click', () => {
+            // Hide the button and show the terminal lines
+            initiateBtn.style.display = 'none';
+            bootSequence.style.display = 'flex';
 
-        // 2. Spike the EKG (switches to fast, red animation)
-        ekgLine.classList.remove('ekg-slow');
-        ekgLine.classList.add('ekg-fast');
+            // Spike the EKG (switches to fast, red animation)
+            ekgLine.classList.remove('ekg-slow');
+            ekgLine.classList.add('ekg-fast');
 
-        // 3. Rapidly type out the terminal lines
-        termLines.forEach((line, index) => {
+            // Rapidly type out the terminal lines
+            termLines.forEach((line, index) => {
+                setTimeout(() => {
+                    line.classList.add('visible');
+                }, index * 250); 
+            });
+
+            // Calculate total time to wait before dissolving the screen
+            const totalTextTime = termLines.length * 250;
+            
             setTimeout(() => {
-                line.classList.add('visible');
-            }, index * 250); // Fast 250ms delay between lines
+                // Add the class that scales and blurs the screen away
+                preloader.classList.add('system-active');
+                
+                // Completely remove it from the DOM
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                    
+                    // 3. Mark the animation as played in the browser's session storage
+                    sessionStorage.setItem('bootSequencePlayed', 'true');
+                    
+                }, 800); 
+                
+            }, totalTextTime + 500); 
         });
-
-        // 4. Calculate total time to wait before dissolving the screen
-        const totalTextTime = termLines.length * 250;
-        
-        setTimeout(() => {
-            // Add the class that scales and blurs the screen away
-            preloader.classList.add('system-active');
-            
-            // Completely remove it from the DOM after the CSS transition finishes
-            setTimeout(() => {
-                preloader.style.display = 'none';
-            }, 800); 
-            
-        }, totalTextTime + 500); // 500ms pause to read "SYSTEM_ONLINE"
-    });
+    }
 });
