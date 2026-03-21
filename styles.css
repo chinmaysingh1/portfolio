@@ -508,8 +508,32 @@ ul { list-style: none; }
 .modal-section-title::after { content: ""; flex: 1; height: 1px; background: rgba(255, 255, 255, 0.1); }
 .modal-list li { position: relative; padding-left: 20px; margin-bottom: 10px; color: #c9d1d9; font-size: 0.95rem; }
 .modal-list li::before { content: "•"; color: var(--accent); position: absolute; left: 0; font-weight: bold; }
-.modal-list-2 li { position: relative; padding-left: 20px; padding-top: 20px; padding-bottom: 10px; margin-bottom: 10px; color: #c9d1d9; font-size: 0.95rem; }
-.modal-list-2 li::before { content: "•"; color: var(--accent); position: absolute; left: 0; font-weight: bold; }
+
+.modal-list-2 {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 25px 0;
+}
+
+.modal-list-2 li { 
+  position: relative; 
+  padding-left: 20px; 
+  margin-bottom: 12px; /* Fixed the weird padding-top and padding-bottom */
+  color: #c9d1d9; 
+  font-size: 0.95rem; 
+  transition: all 0.2s ease; /* Smooth transition for the hover effect */
+  cursor: default;
+}
+
+.modal-list-2 li::before { 
+  content: "•"; 
+  color: var(--accent); 
+  position: absolute; 
+  left: 0; 
+  font-weight: bold; 
+  transition: all 0.2s ease;
+}
+
 .gradient-blue { background: linear-gradient(135deg, rgba(75, 156, 211, 0.2), transparent); }
 .gradient-purple { background: linear-gradient(135deg, rgba(157, 78, 221, 0.2), transparent); }
 .gradient-dark { background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent); }
