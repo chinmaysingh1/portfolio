@@ -145,10 +145,17 @@
   <body>
     
     <div id="blob-container"></div>
-    
+
     <nav class="navbar">
       <div class="container nav-inner">
         <a href="index.html" class="logo">CS.</a>
+        
+        <button class="hamburger" aria-label="Toggle Menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+
         <ul class="nav-links">
           <li><a href="index.html#work">Projects</a></li>
           <li><a href="index.html#experience">Experience</a></li>
@@ -259,6 +266,24 @@
         document.addEventListener('DOMContentLoaded', () => {
              const yearEl = document.getElementById('year');
              if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+             const hamburger = document.querySelector(".hamburger");
+             const navLinks = document.querySelector(".nav-links");
+             const navItems = document.querySelectorAll(".nav-links a");
+
+             if (hamburger) {
+                 hamburger.addEventListener("click", () => {
+                     hamburger.classList.toggle("active");
+                     navLinks.classList.toggle("active");
+                 });
+
+                 navItems.forEach(item => {
+                     item.addEventListener("click", () => {
+                         hamburger.classList.remove("active");
+                         navLinks.classList.remove("active");
+                     });
+                 });
+             }
              
              // --- 1. ALBUM LOGIC ---
              const galleryItems = document.querySelectorAll('.gallery-item');
