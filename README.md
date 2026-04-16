@@ -1,6 +1,6 @@
 # Chinmay Singh — Portfolio
 
-![Portfolio Preview](assets/ChinmayHeadshot.jpg)
+![Portfolio Preview](assets/ChinmayHeadshot.webp)
 
 > **Bridging the gap between biology and technology.**
 
