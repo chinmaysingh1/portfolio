@@ -3,16 +3,16 @@ import PageHeader from "@/components/PageHeader";
 import GalleryClient from "@/components/GalleryClient";
 
 export const metadata: Metadata = {
-  title: "Chinmay Singh — Gallery",
+  title: "Gallery",
   description:
     "Visual documentation of Chinmay Singh's engineering process — KAIRS, iGEM, BioCast, Engineering World Health, and Senior Design.",
-  alternates: { canonical: "https://chinmayksingh.com/gallery" },
+  alternates: { canonical: "/gallery/" },
   openGraph: {
     type: "website",
-    url: "https://chinmayksingh.com/gallery",
-    title: "Chinmay Singh — Gallery",
+    url: "/gallery/",
+    title: "Gallery — Chinmay Singh",
     description: "Visual documentation of my engineering process.",
-    images: ["/assets/ChinmayHeadshot.webp"],
+    images: ["/assets/og-image.jpg"],
   },
 };
 

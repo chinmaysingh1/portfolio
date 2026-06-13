@@ -4,17 +4,17 @@ import BentoGrid from "@/components/BentoGrid";
 import { hardwareProjects } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Chinmay Singh — Hardware & Workbench",
+  title: "Hardware & Workbench",
   description:
     "A collection of embedded systems, retro-tech builds, and right-to-repair passion projects by Chinmay Singh.",
-  alternates: { canonical: "https://chinmayksingh.com/hardware" },
+  alternates: { canonical: "/hardware/" },
   openGraph: {
     type: "website",
-    url: "https://chinmayksingh.com/hardware",
-    title: "Chinmay Singh — Hardware & Workbench",
+    url: "/hardware/",
+    title: "Hardware & Workbench — Chinmay Singh",
     description:
       "Embedded systems, retro-tech builds, and right-to-repair passion projects.",
-    images: ["/assets/ChinmayHeadshot.webp"],
+    images: ["/assets/og-image.jpg"],
   },
 };
 
