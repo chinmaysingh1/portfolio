@@ -100,6 +100,7 @@ const structuredData = {
       url: `${SITE_URL}/`,
       name: "Chinmay Singh — Biomedical Engineer & Entrepreneur",
       isPartOf: { "@id": `${SITE_URL}/#website` },
+      mainEntity: { "@id": `${SITE_URL}/#person` },
       about: { "@id": `${SITE_URL}/#person` },
       inLanguage: "en-US",
     },
