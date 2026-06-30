@@ -8,6 +8,9 @@ import "./globals.css";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  // swap renders fallback text immediately, then swaps in Inter once loaded —
+  // eliminates FOIT and the CLS that a blocking font load would cause.
+  display: "swap",
 });
 
 const SITE_URL = "https://chinmayksingh.com";
@@ -25,10 +28,16 @@ export const metadata: Metadata = {
     template: "%s — Chinmay Singh",
   },
   description:
-    "Portfolio of Chinmay Singh, Biomedical Engineer, Researcher, and Co-Founder of KAIRS. Bridging biology and technology at UNC Chapel Hill.",
+    "Portfolio of Chinmay Singh — Biomedical Engineer, Researcher, and founder of Cualli, a synthetic-biology venture building programmable probiotics for PFAS degradation and internal remediation. Co-Founder of KAIRS. Bridging biology and technology at UNC Chapel Hill.",
   applicationName: "Chinmay Singh Portfolio",
   keywords: [
     "Chinmay Singh",
+    "Cualli",
+    "programmable probiotics",
+    "PFAS degradation",
+    "forever chemicals body burden",
+    "internal remediation",
+    "living medicine",
     "Biomedical Engineering",
     "KAIRS",
     "UNC Chapel Hill",
@@ -118,16 +127,23 @@ const structuredData = {
         "Biomedical Engineering",
         "Medical Device Design",
         "Synthetic Biology",
+        "Programmable Probiotics",
+        "PFAS Degradation",
+        "Internal Remediation",
+        "Living Medicine",
         "Neuroengineering",
         "Rehabilitation Technology",
         "Machine Learning",
         "Embedded Systems",
       ],
-      worksFor: {
-        "@type": "Organization",
-        name: "KAIRS",
-        url: "https://www.kairs.ai/",
-      },
+      worksFor: [
+        { "@id": `${SITE_URL}/#cualli` },
+        {
+          "@type": "Organization",
+          name: "KAIRS",
+          url: "https://www.kairs.ai/",
+        },
+      ],
       alumniOf: [
         {
           "@type": "CollegeOrUniversity",
@@ -142,6 +158,29 @@ const structuredData = {
         "https://www.linkedin.com/in/chinmayksingh/",
         "https://github.com/chinmaysingh1",
       ],
+    },
+    {
+      // Cualli is represented as its own Organization entity that Chinmay
+      // founded. sameAs points to the venture's canonical home (cualli.bio)
+      // without hijacking THIS site's canonical, so crawlers connect the
+      // founder ↔ venture without a cross-domain canonical conflict.
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#cualli`,
+      name: "Cualli",
+      url: "https://cualli.bio",
+      description:
+        "Cualli is a synthetic-biology venture engineering programmable probiotics — living medicine for internal remediation that degrades PFAS and lowers the body's forever-chemicals burden.",
+      foundingDate: "2024",
+      founder: { "@id": `${SITE_URL}/#person` },
+      knowsAbout: [
+        "Programmable Probiotics",
+        "PFAS Degradation",
+        "Forever Chemicals Body Burden",
+        "Internal Remediation",
+        "Living Medicine",
+        "Synthetic Biology",
+      ],
+      sameAs: ["https://cualli.bio"],
     },
   ],
 };
