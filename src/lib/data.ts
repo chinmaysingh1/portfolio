@@ -523,7 +523,7 @@ export const hardwareProjects: Project[] = [
 ];
 
 export const heroStats = [
-  { num: "$42.5k", label: "Funding Won" },
+  { num: "$43.7k", label: "Funding Won" },
   { num: "5+", label: "Years Research" },
   { num: "1st", label: "Runner-up Globally (Medtronic)" },
 ];
