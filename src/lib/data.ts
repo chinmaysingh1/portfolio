@@ -322,7 +322,7 @@ export const personalCards: Project[] = [
           title: "Fun!",
           paragraphs: [
             "Aside from escape rooms and traveling, I am a huge fan of watching shows, anime, and more. A few of my all-time favorites (in no particular order): Breaking Bad, Better Call Saul, Steins;Gate, Fullmetal Alchemist: Brotherhood, and Severance.",
-            "Some of the shows I'm watching right now: NCIS, Jujutsu Kaisen: Season 3, and Frieren: Beyond a Journey's End.",
+            "Some of the shows I'm watching right now: NCIS, Agent Kim Reactivated, and Re:Zero Season 4.",
           ],
         },
       ],
