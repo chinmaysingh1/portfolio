@@ -35,9 +35,9 @@ export const projects: Project[] = [
     id: "kairs",
     tag: "Startup • Medical Device",
     title: "KAIRS",
-    award: "🏆 $37.5k Won",
+    award: "🏆 $42.5k Won",
     blurb:
-      "Co-Founder. Developing a knee rehabilitation sleeve using AI to track patient recovery. Winner: NC State VenturePack Grand Prize 2025. Global First Runner-Up: 2024 Medtronic/BMES Student Design Competition.",
+      "Co-Founder. Developing an AI-enabled knee rehabilitation sleeve that tracks patient recovery between clinic visits. Undergraduate Runner-Up: 2026 Collegiate Inventors Competition. Winner: NC State VenturePack Grand Prize 2025. Global First Runner-Up: 2024 Medtronic/BMES Student Design Competition.",
     tech: ["C++", "PyTorch", "Medical Device Design", "Hardware Development"],
     glow: "blue",
     size: "large",
@@ -59,18 +59,21 @@ export const projects: Project[] = [
           title: "The Solution",
           paragraphs: [
             "I co-founded KAIRS to build a wearable sleeve integrated with IMU sensors and a machine learning model to interpret the data collected from the sensors, and develop a recovery protocol/assist clinicians with their decision-making accordingly. My primary technical contribution was engineering the sleeve equipped with sensors, which is incorporated with an ESP-32 to track range-of-motion and exercise form in real-time.",
+            "Over the past two years, our team has completed 100+ customer discovery interviews to shape what we're building.",
           ],
         },
         {
           title: "Impact & Awards",
           list: [
-            "$37,500 Funding: Secured non-dilutive, equity-free funding.",
+            "$42,500 Funding: Secured non-dilutive, equity-free funding.",
+            "Undergraduate Runner-Up: 2026 Collegiate Inventors Competition, presented to National Inventors Hall of Fame inductees and USPTO officials at USPTO headquarters in Alexandria, Virginia.",
+            "Student Venture Fund: UNC-Chapel Hill 2026 Student Venture Fund recipient.",
             "Grand Champion: NC State VenturePack Challenge 2025 (also voted Audience's Choice Winner).",
             "First Place: Winner of i4 competition at 2026 UNC/NCSU Lampe Joint Department of Biomedical Engineering Design Symposium.",
             "Audience Choice: Joan and Chester Luby Pitch Competition 2026.",
             "Global Runner-Up: 2nd Place at 2024 BMES/Medtronic Student Design Competition.",
             "Second Place: 2nd place at the 2025 NC State Wolf Den Competition.",
-            "Top 8 Worldwide: Recognized among the top 8 teams globally at the 2026 Johns Hopkins Healthcare Design Competition within the Digital Health Track.",
+            "Top 8 Worldwide: Finalist in the Digital Health Track at the 2026 Johns Hopkins Healthcare Design Competition, selected from 568 teams across 43 countries.",
           ],
         },
       ],
@@ -80,42 +83,46 @@ export const projects: Project[] = [
   },
   {
     id: "igem",
-    tag: "Synthetic Biology",
-    title: "UNC iGEM",
-    award: "🥇 Gold Medal",
+    tag: "Startup • Synthetic Biology",
+    title: "Cualli, LLC",
+    award: "🥇 iGEM Gold • $9.2k Raised",
     blurb:
-      "Wet Lab Lead. Managed a team of 6 researchers to synthesize novel probiotic to uptake PFAS.",
-    tech: ["Genetic Engineering", "Team Management"],
+      "Co-Founder & CFO. Translating our gold-medal UNC iGEM probiotic into living medicine that filters PFAS from the body. Leading fundraising, product development, and business strategy.",
+    tech: ["Synthetic Biology", "Fundraising", "Business Strategy"],
     glow: "purple",
     size: "medium",
     modal: {
       gradient: "purple",
-      tag: "Synthetic Biology Research",
-      title: "UNC iGEM: Wet Lab Lead",
+      tag: "Startup Venture • Synthetic Biology",
+      title: "Cualli: Living Medicine for PFAS",
       image: "/assets/iGEM.webp",
-      imageAlt: "Protein Structure",
+      imageAlt: "UNC iGEM team at the 2025 Grand Jamboree",
       skills: [
+        "💼 Fundraising & Strategy",
         "🧬 Genetic Recombineering",
         "🧫 E. coli Culture",
-        "🧪 Wet Lab Lead",
         "⚡️ Electrochemistry",
       ],
       sections: [
         {
-          title: "Project Overview",
+          title: "The Venture",
           paragraphs: [
-            "As Wet Lab Lead, I managed a team of 6 researchers to develop a novel probiotic aimed at environmental health.",
+            "I co-founded Cualli, LLC in January 2026 to carry our UNC iGEM research beyond the competition and toward translational impact with probiotics in therapeutics. As Co-Founder and CFO, I head fundraising, product development, and business strategy.",
+          ],
+          list: [
+            "$9,200 Funding: Raised in non-dilutive, equity-free funding.",
           ],
         },
         {
-          title: "Methodology",
+          title: "Origins: UNC iGEM",
           paragraphs: [
+            "Cualli grew out of the UNC iGEM team, where I served as Wet Lab Team Lead from January 2025 to February 2026, managing a team of 6 researchers to develop a novel probiotic aimed at environmental health.",
             "We engineered Nissle 1917 E. coli, which have a natural affinity to uptake PFAS, to knock out the AcrB gene within the TolC efflux pump complex. We hypothesized this would prevent PFAS (Forever Chemicals) from re-entering the human gut, reducing systemic toxicity.",
             "Our work and experimentation led to a gold medal at the 2025 iGEM Grand Jamboree in Paris, France.",
           ],
         },
         {
-          title: "Key Contributions",
+          title: "iGEM Wet Lab Contributions",
           list: [
             "Organized bi-weekly lab workflows, managed check-ins with members, and discussed project directions.",
             "Wrote all experimental protocols and validated with Sode Lab members.",
@@ -130,7 +137,7 @@ export const projects: Project[] = [
           ],
         },
       ],
-      website: { label: "Our Website", href: "https://2025.igem.wiki/unc-chapelhill/" },
+      website: { label: "Our Website", href: "https://cualli.bio" },
       github: "https://github.com/chinmaysingh1/iGEMMATLAB.git",
     },
   },
@@ -153,7 +160,7 @@ export const projects: Project[] = [
         {
           title: "The Project",
           paragraphs: [
-            "Co-founded a podcast to bridge the gap between complex biological research and the public, particularly within a post-Covid-19 world, where medical misinformation is rampant.",
+            "Co-founded a podcast alongside Parth Shirolkar to bridge the gap between complex biological research and the public, particularly within a post-Covid-19 world, where medical misinformation is rampant.",
             "Another goal is to show how some of the most prolific researchers live and establishing a connection between them and the general public.",
           ],
         },
@@ -209,6 +216,7 @@ export const projects: Project[] = [
           title: "Impact",
           list: [
             "Engineer-A-Thon: Organized UNC's first event for 40+ students, fundraising and managing a $2,000 corporate budget.",
+            "Guest Speakers: Hosted Dr. Robert Langer and Dr. Eric Green as guest speakers for the chapter.",
             "Skills Workshops: Personally instructed 20+ students in soldering and electronics training to build optical heart rate monitors and pressure calibration kits.",
             "Career Advice and Future Goals: Conducted fireside chat with UNC professors regarding career prospects within biomedical engineering, as well as post-graduation plans for BME students.",
           ],
@@ -221,17 +229,17 @@ export const projects: Project[] = [
     tag: "Engineering",
     title: "Senior Design",
     blurb:
-      "Project Lead. Designed VR environment and haptic feedback glove for stroke rehab.",
-    tech: ["Hardware", "Programming"],
+      "Project Lead. Built a haptic feedback glove and VR environment for neurorehabilitation after stroke.",
+    tech: ["ESP32", "C++", "Unreal Engine 5"],
     glow: "purple",
     size: "medium",
     modal: {
       gradient: "dark",
       tag: "Electronics and Medical Device Design",
-      title: "Senior Design Capstone Project",
+      title: "Three Musketeers: A Haptic Feedback Glove for Neurorehabilitation",
       image: "/assets/ThreeMusk.webp",
       imageAlt: "Senior Design Team",
-      skills: ["🔌 Soldering", "💡 Circuit Design", "👥 Event Planning"],
+      skills: ["🔌 ESP32 / C++", "🎮 Unreal Engine 5", "🖨️ 3D Printing", "⚙️ Servo Motors"],
       sections: [
         {
           title: "Role: Team Lead & Environment Designer",
@@ -246,6 +254,7 @@ export const projects: Project[] = [
             "Established connection with Dr. Chad Bouton of the Northwell Feinstein Institute of Bioelectronic Medicine through Dr. Robert Langer.",
             "Developed Proof of Concept in Unreal Engine 5, using Blueprints and Epic Games' Fab Asset Manager.",
             "Developed bill of materials for supplies needed to develop haptic feedback glove.",
+            "Built the glove on an ESP-32 architecture with servo motors, power supplies, and extensive 3-D printing, handling the soldering and wiring and writing the firmware in C++ with PlatformIO.",
             "Coordinated efforts to visit Bouton Lab in New York City, New York to learn more about their technologies and research, as well as how to establish tech to best assist the lab.",
           ],
         },
@@ -367,11 +376,11 @@ export type TimelineEntry = {
 
 export const education: TimelineEntry[] = [
   {
-    date: "May 2026 — May 2027",
+    date: "Jun 2026 — May 2027",
     role: "Graduate Program",
     title: "Johns Hopkins University",
     institution: "Center for Bioengineering Innovation and Design (CBID)",
-    body: "Incoming M.S.E. candidate selected for a highly competitive translational engineering program. Focus on clinical observation, global health inequities, and developing commercializable medical devices.",
+    body: "M.S.E. candidate in Bioengineering Innovation and Design, one of 23 students selected globally for this translational engineering program within the Johns Hopkins Department of Biomedical Engineering. Focus on clinical observation, global health inequities, and developing commercializable medical devices.",
     tech: ["Translational Engineering", "Medical Device Design", "Global Health"],
   },
   {
@@ -379,7 +388,7 @@ export const education: TimelineEntry[] = [
     role: "Undergraduate Program",
     title: "UNC Chapel Hill & NC State University",
     institution: "Lampe Joint Department of Biomedical Engineering",
-    body: "Pursuing a B.S. in Biomedical Engineering with a Minor in Data Science. Awarded Dean's List honors for 7 consecutive semesters. Campus leader serving as President of Engineering World Health and Wet-Lab Lead for the Gold-Medal winning UNC iGEM team.",
+    body: "Earned a B.S. in Biomedical Engineering with a Minor in Data Science. Awarded Dean's List honors for 8 consecutive semesters. Campus leader serving as President of Engineering World Health and Wet-Lab Lead for the Gold-Medal winning UNC iGEM team.",
     tech: ["Neuroengineering", "Synthetic Biology", "Data Science"],
   },
   {
@@ -394,27 +403,35 @@ export const education: TimelineEntry[] = [
 
 export const experience: TimelineEntry[] = [
   {
-    date: "Jan 2025 — Present",
+    date: "Jan 2025 — May 2026",
     role: "Teaching Assistant",
     title: "Junior Design & Manufacturing (BMME 398)",
     institution:
       "Lampe Joint Department of Biomedical Engineering at the University of North Carolina at Chapel Hill and North Carolina State University",
-    body: "Instructing students on Unreal Engine 5 for biomedical applications in virtual reality, as well as mammalian and bacterial cell culture techniques.",
+    body: "Facilitated lab sections for the Junior Design and Manufacturing course. Instructed students and graded assignments for the VR Module (Unreal Engine 5 and game development for biomedical applications) and the Cell Culture Module (mammalian cell culture), and assisted with machine shop and fabrication lab maintenance.",
     tech: ["Unreal Engine 5", "VR", "Cell Culture", "Teaching"],
   },
   {
-    date: "Jan 2025 — Present",
+    date: "Jan 2025 — May 2026",
     role: "Undergraduate Researcher",
     title: "Sode Lab",
     institution:
       "Lampe Joint Department of Biomedical Engineering at the University of North Carolina at Chapel Hill and North Carolina State University",
-    body: "Conducting scFv antibody research under mentorship of Dr. Madoka Nagata to develop pH-specific antibodies for diabetes sensing in continuous glucose monitor development. Leveraging AlphaFold to predict 3D structures and cultivating genetically modified E. coli.",
+    body: "Conducted scFv antibody research under mentorship of Dr. Madoka Nagata to develop pH-specific antibodies for diabetes sensing in continuous glucose monitor development. Leveraged AlphaFold to predict 3D structures and cultivated genetically modified E. coli.",
     tech: [
       "AlphaFold",
       "Antibody Engineering",
       "Bacterial Cell Culture",
       "Binding affinities",
     ],
+  },
+  {
+    date: "Aug 2023 — May 2024",
+    role: "Peer Mentor",
+    title: "How Cells Function (BIOL 103)",
+    institution: "University of North Carolina at Chapel Hill",
+    body: "Served as a peer mentor for students in BIOL 103. Answered questions, tutored students, and held weekly office hours to strengthen understanding of lectures and assignments.",
+    tech: ["Peer Mentoring", "Cell Biology", "Teaching"],
   },
   {
     date: "Dec 2022 — Dec 2024",
@@ -432,7 +449,7 @@ export const experience: TimelineEntry[] = [
     body: "Studied effects of spinal macrophages on nociceptive pain. Induced cytokine secretion via agonist antibodies and quantified results using Fiji and ImageJ. Quantified cell counts in sex-specific RAG induction of mouse spinal cords. Examined effects of azoxystrobin on mice brains.",
   },
   {
-    date: "Jan 2021 — Dec 2022",
+    date: "Aug 2021 — Dec 2022",
     role: "Research Intern",
     title: "Troester Lab",
     institution: "University of North Carolina at Chapel Hill",
@@ -450,6 +467,13 @@ export type Award = {
 
 export const awards: Award[] = [
   {
+    icon: "🏅",
+    title: "Undergraduate Runner-Up",
+    org: "Collegiate Inventors Competition 2026",
+    detail: "Presented KAIRS to National Inventors Hall of Fame inductees at USPTO headquarters.",
+    tier: "gold",
+  },
+  {
     icon: "🏆",
     title: "Grand Prize Winner",
     org: "NC State VenturePack 2025",
@@ -464,9 +488,27 @@ export const awards: Award[] = [
     tier: "silver",
   },
   {
+    icon: "🌍",
+    title: "Top 8 Worldwide",
+    org: "Johns Hopkins Healthcare Design Comp 2026",
+    detail: "Digital Health Track finalist, from 568 teams across 43 countries.",
+  },
+  {
+    icon: "🥇",
+    title: "First Place, i4",
+    org: "UNC/NCSU BME Design Symposium 2026",
+    detail: "Lampe Joint Department of Biomedical Engineering.",
+  },
+  {
+    icon: "🎤",
+    title: "Audience Choice Award",
+    org: "Luby Pitch Competition 2026",
+    detail: "Voted favorite pitch at Innovate Carolina's competition.",
+  },
+  {
     icon: "🗳️",
     title: "Audience Choice",
-    org: "NC State VenturePack",
+    org: "NC State VenturePack 2025",
     detail: "Voted best startup by audience.",
   },
   {
@@ -479,7 +521,7 @@ export const awards: Award[] = [
     icon: "🎓",
     title: "Dean's List",
     org: "Academic Excellence",
-    detail: "Awarded 7 consecutive semesters.",
+    detail: "Awarded 8 consecutive semesters.",
   },
 ];
 
@@ -523,7 +565,7 @@ export const hardwareProjects: Project[] = [
 ];
 
 export const heroStats = [
-  { num: "$43.7k", label: "Funding Won" },
+  { num: "$51.7k", label: "Funding Won" },
   { num: "5+", label: "Years Research" },
-  { num: "1st", label: "Runner-up Globally (Medtronic)" },
+  { num: "1st", label: "Runner-up at Collegiate Inventors Competition" },
 ];

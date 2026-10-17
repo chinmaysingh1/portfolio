@@ -87,7 +87,7 @@ Includes work from:
 
 ## 📞 Contact
 
-* **Email**: [Chinmay.Singh@unc.edu](mailto:Chinmay.Singh@unc.edu)
+* **Email**: [csingh10@jh.edu](mailto:csingh10@jh.edu)
 * **LinkedIn**: [Chinmay Singh](https://www.linkedin.com/in/chinmayksingh/)
 
 ---

@@ -57,7 +57,8 @@ export default function Hero() {
           className="mt-6 max-w-xl text-lg leading-relaxed text-muted"
         >
           I&apos;m Chinmay. I build medical devices, engineer organisms, and develop
-          startup ventures. Currently scaling KAIRS and researching at UNC Chapel Hill.
+          startup ventures. Currently scaling KAIRS and Cualli while pursuing my M.S.E. at
+          Johns Hopkins CBID.
         </motion.p>
 
         <motion.div
@@ -102,7 +103,7 @@ export default function Hero() {
 
         <div className="flex gap-4">
           {[
-            { href: "mailto:Chinmay.Singh@unc.edu", label: "Email", Icon: Mail },
+            { href: "mailto:csingh10@jh.edu", label: "Email", Icon: Mail },
             {
               href: "https://www.linkedin.com/in/chinmayksingh/",
               label: "LinkedIn",
