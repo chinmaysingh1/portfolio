@@ -426,6 +426,14 @@ export const experience: TimelineEntry[] = [
     ],
   },
   {
+    date: "Aug 2023 — May 2024",
+    role: "Peer Mentor",
+    title: "How Cells Function (BIOL 103)",
+    institution: "University of North Carolina at Chapel Hill",
+    body: "Served as a peer mentor for students in BIOL 103. Answered questions, tutored students, and held weekly office hours to strengthen understanding of lectures and assignments.",
+    tech: ["Peer Mentoring", "Cell Biology", "Teaching"],
+  },
+  {
     date: "Dec 2022 — Dec 2024",
     role: "Undergraduate Researcher",
     title: "Stein Lab",

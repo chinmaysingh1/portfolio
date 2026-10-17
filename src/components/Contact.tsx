@@ -31,7 +31,7 @@ export default function Contact() {
           <FileDown size={22} />
         </a>
         <a
-          href="mailto:chinmay@kairs.ai"
+          href="mailto:csingh10@jh.edu"
           aria-label="Email"
           className="rounded-full border border-white/[0.08] bg-surface p-4 text-white/70 transition duration-300 hover:-translate-y-1.5 hover:border-carolina/60 hover:text-carolina hover:shadow-[0_12px_24px_-10px_rgba(75,156,211,0.45)]"
         >

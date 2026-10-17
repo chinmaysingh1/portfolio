@@ -120,7 +120,7 @@ const structuredData = {
       url: `${SITE_URL}/`,
       image: `${SITE_URL}/assets/ChinmayHeadshot.webp`,
       jobTitle: "Biomedical Engineer & Co-Founder",
-      email: "mailto:Chinmay.Singh@unc.edu",
+      email: "mailto:csingh10@jh.edu",
       description:
         "Biomedical Engineer and entrepreneur building at the intersection of biology and technology — Co-Founder of KAIRS and Cualli, UNC Chapel Hill BME alum, and M.S.E. candidate at Johns Hopkins CBID.",
       knowsAbout: [

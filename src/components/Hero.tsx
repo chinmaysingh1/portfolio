@@ -103,7 +103,7 @@ export default function Hero() {
 
         <div className="flex gap-4">
           {[
-            { href: "mailto:Chinmay.Singh@unc.edu", label: "Email", Icon: Mail },
+            { href: "mailto:csingh10@jh.edu", label: "Email", Icon: Mail },
             {
               href: "https://www.linkedin.com/in/chinmayksingh/",
               label: "LinkedIn",
