@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     template: "%s — Chinmay Singh",
   },
   description:
-    "Portfolio of Chinmay Singh — Biomedical Engineer, Researcher, and founder of Cualli, a synthetic-biology venture building programmable probiotics for PFAS degradation and internal remediation. Co-Founder of KAIRS. Bridging biology and technology at UNC Chapel Hill.",
+    "Portfolio of Chinmay Singh — Biomedical Engineer, Researcher, and co-founder of Cualli, a synthetic-biology venture building programmable probiotics for PFAS degradation and internal remediation. Co-Founder of KAIRS. M.S.E. candidate at Johns Hopkins CBID and UNC Chapel Hill BME alum.",
   applicationName: "Chinmay Singh Portfolio",
   keywords: [
     "Chinmay Singh",
@@ -122,7 +122,7 @@ const structuredData = {
       jobTitle: "Biomedical Engineer & Co-Founder",
       email: "mailto:Chinmay.Singh@unc.edu",
       description:
-        "Biomedical Engineer and entrepreneur building at the intersection of biology and technology — Co-Founder of KAIRS, researcher at UNC Chapel Hill, and incoming Johns Hopkins CBID candidate.",
+        "Biomedical Engineer and entrepreneur building at the intersection of biology and technology — Co-Founder of KAIRS and Cualli, UNC Chapel Hill BME alum, and M.S.E. candidate at Johns Hopkins CBID.",
       knowsAbout: [
         "Biomedical Engineering",
         "Medical Device Design",
@@ -170,7 +170,7 @@ const structuredData = {
       url: "https://cualli.bio",
       description:
         "Cualli is a synthetic-biology venture engineering programmable probiotics — living medicine for internal remediation that degrades PFAS and lowers the body's forever-chemicals burden.",
-      foundingDate: "2024",
+      foundingDate: "2026",
       founder: { "@id": `${SITE_URL}/#person` },
       knowsAbout: [
         "Programmable Probiotics",

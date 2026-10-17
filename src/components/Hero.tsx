@@ -57,7 +57,8 @@ export default function Hero() {
           className="mt-6 max-w-xl text-lg leading-relaxed text-muted"
         >
           I&apos;m Chinmay. I build medical devices, engineer organisms, and develop
-          startup ventures. Currently scaling KAIRS and researching at UNC Chapel Hill.
+          startup ventures. Currently scaling KAIRS and Cualli while pursuing my M.S.E. at
+          Johns Hopkins CBID.
         </motion.p>
 
         <motion.div
