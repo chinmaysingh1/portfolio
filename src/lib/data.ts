@@ -35,7 +35,7 @@ export const projects: Project[] = [
     id: "kairs",
     tag: "Startup • Medical Device",
     title: "KAIRS",
-    award: "🏆 $37.5k Won",
+    award: "🏆 $42.5k Won",
     blurb:
       "Co-Founder. Developing a knee rehabilitation sleeve using AI to track patient recovery. Winner: NC State VenturePack Grand Prize 2025. Global First Runner-Up: 2024 Medtronic/BMES Student Design Competition.",
     tech: ["C++", "PyTorch", "Medical Device Design", "Hardware Development"],
@@ -81,8 +81,8 @@ export const projects: Project[] = [
   {
     id: "igem",
     tag: "Synthetic Biology",
-    title: "UNC iGEM",
-    award: "🥇 Gold Medal",
+    title: "Cualli, LLC",
+    award: "🥇 Gold Medal, 9.2k Won",
     blurb:
       "Wet Lab Lead. Managed a team of 6 researchers to synthesize novel probiotic to uptake PFAS.",
     tech: ["Genetic Engineering", "Team Management"],
@@ -91,7 +91,7 @@ export const projects: Project[] = [
     modal: {
       gradient: "purple",
       tag: "Synthetic Biology Research",
-      title: "UNC iGEM: Wet Lab Lead",
+      title: "UNC iGEM: Wet Lab Lead, now CFO",
       image: "/assets/iGEM.webp",
       imageAlt: "Protein Structure",
       skills: [
@@ -523,7 +523,7 @@ export const hardwareProjects: Project[] = [
 ];
 
 export const heroStats = [
-  { num: "$43.7k", label: "Funding Won" },
+  { num: "$51.7k", label: "Funding Won" },
   { num: "5+", label: "Years Research" },
-  { num: "1st", label: "Runner-up Globally (Medtronic)" },
+  { num: "1st", label: "Runner-up at Collegiate Inventors Competition" },
 ];
