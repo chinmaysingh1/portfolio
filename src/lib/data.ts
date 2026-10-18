@@ -463,15 +463,31 @@ export type Award = {
   org: string;
   detail: string;
   tier?: "gold" | "silver";
+  // Featured entries span the full grid row and show date, prizes, and a source link.
+  featured?: boolean;
+  date?: string;
+  prizes?: string[];
+  context?: string;
+  link?: { label: string; href: string };
 };
 
 export const awards: Award[] = [
   {
     icon: "🏅",
     title: "Undergraduate Runner-Up",
-    org: "Collegiate Inventors Competition 2026",
-    detail: "Presented KAIRS to National Inventors Hall of Fame inductees at USPTO headquarters.",
+    org: "Collegiate Inventors Competition",
+    date: "October 2026",
+    prizes: ["$5,000 Cash Prize", "USPTO Patent Acceleration Certificate"],
+    detail:
+      "KAIRS was named one of 10 national finalists from 160 applicants, then placed second among the five undergraduate teams. We presented to a judging panel of National Inventors Hall of Fame inductees and USPTO officials at USPTO headquarters in Alexandria, Virginia.",
+    context:
+      "Established in 1990, the national collegiate invention competition is run by the National Inventors Hall of Fame and sponsored by the U.S. Patent and Trademark Office.",
+    link: {
+      label: "Official 2026 winners announcement",
+      href: "https://www.invent.org/news/cic/2026/winners",
+    },
     tier: "gold",
+    featured: true,
   },
   {
     icon: "🏆",
