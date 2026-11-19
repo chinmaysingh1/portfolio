@@ -65,7 +65,7 @@ export const projects: Project[] = [
         {
           title: "Impact & Awards",
           list: [
-            "$42,500 Funding: Secured non-dilutive, equity-free funding.",
+            "$44,700 Funding: Secured non-dilutive, equity-free funding.",
             "Undergraduate Runner-Up: 2026 Collegiate Inventors Competition, presented to National Inventors Hall of Fame inductees and USPTO officials at USPTO headquarters in Alexandria, Virginia.",
             "Student Venture Fund: UNC-Chapel Hill 2026 Student Venture Fund recipient.",
             "Grand Champion: NC State VenturePack Challenge 2025 (also voted Audience's Choice Winner).",
@@ -110,7 +110,7 @@ export const projects: Project[] = [
             "I co-founded Cualli, LLC in January 2026 to carry our UNC iGEM research beyond the competition and toward translational impact with probiotics in therapeutics. As Co-Founder and CFO, I head fundraising, product development, and business strategy.",
           ],
           list: [
-            "$9,200 Funding: Raised in non-dilutive, equity-free funding.",
+            "$10,700 Funding: Raised in non-dilutive, equity-free funding.",
           ],
         },
         {
@@ -139,6 +139,98 @@ export const projects: Project[] = [
       ],
       website: { label: "Our Website", href: "https://cualli.bio" },
       github: "https://github.com/chinmaysingh1/iGEMMATLAB.git",
+    },
+  },
+  {
+    id: "cbid-microsurgery",
+    tag: "Johns Hopkins CBID • Surgical Device",
+    title: "CBID Microsurgery",
+    award: "I-Corps 2026",
+    blurb:
+      "Designing a handheld device that joins a lymph vessel to a vein in one step, replacing hand-sewn sutures in supermicrosurgery for lymphedema. 20+ customer discovery interviews with surgeons, patients, and hospital stakeholders.",
+    tech: ["Medical Device Design", "Customer Discovery", "Biomaterials", "IP Landscaping"],
+    glow: "blue",
+    size: "half",
+    modal: {
+      gradient: "blue",
+      tag: "Johns Hopkins CBID • Surgical Device",
+      title: "CBID Microsurgery: Sutureless Lymphovenous Anastomosis",
+      skills: [
+        "🔬 Clinical Observation",
+        "🗣️ Customer Discovery",
+        "🧪 Biomaterials",
+        "📜 IP Landscaping",
+      ],
+      sections: [
+        {
+          title: "The Clinical Problem",
+          paragraphs: [
+            "Lymphedema can be treated with lymphovenous anastomosis (LVA), a surgery that connects a blocked lymph vessel to a nearby vein. Those vessels are about half a millimeter wide and are hand-sewn under a microscope with 11-0 and 12-0 sutures. Because the procedure is so technically demanding, fewer than 100 U.S. surgeons perform it regularly, and patient demand far exceeds surgical capacity.",
+          ],
+        },
+        {
+          title: "Our Approach",
+          paragraphs: [
+            "Our team of six CBID graduate students spent months observing reconstructive microsurgery cases at Johns Hopkins before converging on LVA. We are developing a handheld device that joins the lymph vessel to the vein in one step, with no hand-sewing. Surgeons already performing LVA are the first users: more connections with less strain. Longer term, lowering the technical barrier opens the procedure to the much larger pool of microsurgeons, which in turn helps build the clinical evidence base the field is missing.",
+          ],
+        },
+        {
+          title: "My Contributions",
+          list: [
+            "Member of the Mid-Atlantic I-Corps fall cohort; completed 20+ customer discovery interviews with microsurgeons, patients, patient advocates, and hospital stakeholders.",
+            "Explored biomaterials options for the device with materials science advisors to define resorption, mechanical, and biocompatibility requirements.",
+            "Contributed to IP landscaping and competitive analysis to de-risk concepts before advisory board review.",
+            "Mapped the patient referral pathway and reimbursement landscape to shape the value proposition around OR time and anastomoses per procedure.",
+            "Presented concepts to an advisory board of reconstructive surgeons and medtech innovation leaders.",
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "cbid-intelehealth",
+    tag: "Johns Hopkins CBID • Global Health",
+    title: "CBID × Intelehealth",
+    award: "India Fieldwork",
+    blurb:
+      "Building an assessment-to-rehabilitation pathway that brings physiotherapy to rural patients in India with exercise-responsive musculoskeletal pain, in partnership with Intelehealth and SEARCH.",
+    tech: ["Global Health", "Digital Health", "Ethnographic Research", "Data Analysis"],
+    glow: "purple",
+    size: "half",
+    modal: {
+      gradient: "purple",
+      tag: "Johns Hopkins CBID • Global Health",
+      title: "CBID × Intelehealth: Rehabilitation Access in Rural India",
+      skills: [
+        "🌏 Field Observation",
+        "📊 Telemedicine Data Analysis",
+        "🩺 Clinical Workflow Design",
+        "📝 Manuscript Writing",
+      ],
+      sections: [
+        {
+          title: "The Need",
+          paragraphs: [
+            "Through fieldwork in India, our team of six CBID graduate students logged 366 clinical observations, narrowed them to 21 needs across prevention, diagnosis, and treatment, and selected access to physiotherapy as our focus. In rural Gadchiroli district, Maharashtra, 83% of adults reported back or extremity pain over a twelve-month period, yet the treatments with the strongest evidence (education, graded activity, load management) must be delivered repeatedly, which the current care system is not built to do.",
+            "Need statement: rural patients with exercise-responsive musculoskeletal conditions need access to rehabilitation in order to reduce pain and improve functional recovery.",
+          ],
+        },
+        {
+          title: "Our Approach",
+          paragraphs: [
+            "We are designing a two-part pathway: an assessment step that triages red-flag cases for referral and establishes a functional baseline, and a delivery step that turns that assessment into a rehabilitation plan patients can follow beyond the clinic. The design is grounded in real workforce constraints, using a task-shifted community health worker model so it can scale within government health systems.",
+          ],
+        },
+        {
+          title: "Research & Roadmap",
+          list: [
+            "Co-authoring two manuscripts: a qualitative needs paper from our ethnographic fieldwork in India (JHU IRB approved) and a quantitative analysis of Intelehealth's Nashik telemedicine dataset covering referral trends and treatment gaps.",
+            "Co-authored a landscape analysis of joint care in rural India to anchor concept selection.",
+            "Presented to an advisory board of clinicians, public health researchers, and Intelehealth and SEARCH partners.",
+            "Next: final concept in December, prototype in January, and usability testing in India in February 2027.",
+          ],
+        },
+      ],
     },
   },
   {
@@ -402,6 +494,14 @@ export const education: TimelineEntry[] = [
 ];
 
 export const experience: TimelineEntry[] = [
+  {
+    date: "Aug 2026 — Present",
+    role: "Teaching Assistant",
+    title: "BME Design Team & Team Leader TA",
+    institution: "Johns Hopkins University, Department of Biomedical Engineering",
+    body: "Design Team TA for the year-long undergraduate BME Design Team course. Support three student design teams through weekly check-ins and desk reviews held roughly every two weeks alongside each team's faculty mentor, provide ad hoc guidance on course activities and project milestones, and grade deliverables for my assigned teams and the rest of the course. As Team Leader TA, also support the weekly Design Team Leader course for the student leads who run each design team.",
+    tech: ["Design Mentorship", "Design Reviews", "Team Leadership", "Teaching"],
+  },
   {
     date: "Jan 2025 — May 2026",
     role: "Teaching Assistant",
